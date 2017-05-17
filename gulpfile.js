@@ -123,7 +123,7 @@ gulp.task("svgloc", function() {
             inlineSvg: true
         }))
         .pipe(rename("symbol.svg"))
-        .pipe(gulp.dest("build/assets/img"));
+        .pipe(gulp.dest("assets/img"));
 });
 
 

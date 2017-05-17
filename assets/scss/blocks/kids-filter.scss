@@ -1,0 +1,55 @@
+.kids-filter {
+  margin-right: 20px;
+  font-size: 0;
+}
+.kids-filter__age {
+  position:relative;
+  display: inline-block;
+  margin-right: 12px;
+  padding: 0 22px;
+  line-height: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 18px;
+  border: 1px dashed #c5e6ff;
+  transition: all .35s ease-out;
+  &:last-child {
+    margin-right: 0;
+  }
+  svg {
+    fill: #71cef3;
+    vertical-align: top;
+  }
+  &--newborn {
+    padding-left: 16px;
+    .kids-filter__icon {
+      margin-right: 10px;
+      width: 26px;
+      height: 20px;
+    }
+  }
+  &--year {
+    padding-left: 17px;
+    .kids-filter__icon {
+      margin-right: 6px;
+      width: 26px;
+      height: 20px;
+    }
+  }
+  &--two-year {
+    padding-left: 19px;
+    .kids-filter__icon {
+      margin-right: 5px;
+      width: 16px;
+      height: 26px;
+    }
+  }
+  &:hover {
+    border-color: $green;
+    color: $green;
+  }
+}
+.kids-filter__icon {
+  display: inline-block;
+  vertical-align: middle;
+}
