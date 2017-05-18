@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 57.9 53.9" style="enable-background:new 0 0 57.9 53.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:url(#SVGID_3_);}
+</style>
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M16.1,0c-1.7,0-3.5,0.3-5.4,1.1C3.9,3.9,0,10.5,0,17.4v0.3c0,2.7,0.6,5.3,1.8,7.9
+			C5.2,32.9,12.3,42.4,26,52.9c0.8,0.6,1.9,1,2.9,1h0c1,0,2-0.3,2.9-1c13.8-10.4,20.9-20,24.3-27.3c4.3-9.2,0.6-20.6-8.8-24.4
+			C40.5-1.6,35.2,1.2,32,3.8c-1.8,1.5-4.4,1.5-6.1,0C23.7,2,20.3,0,16.2,0H16.1z"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	
+		<radialGradient id="SVGID_3_" cx="0.5219" cy="53.8716" r="0.5007" gradientTransform="matrix(57.9472 0 0 -57.9472 0 3147.8386)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFF5E1"/>
+		<stop  offset="1" style="stop-color:#FFDF99"/>
+	</radialGradient>
+	<rect y="-1.6" class="st0" width="60.5" height="55.5"/>
+</g>
+</svg>
