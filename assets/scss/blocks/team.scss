@@ -1,0 +1,36 @@
+.team {
+  position: relative;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.team__inner {
+  font-size: 0;
+  @include container;
+
+}
+
+.team__text {
+  max-width: 930px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  p {
+    padding-bottom: 30px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.76;
+  }
+}
+
+.team__bg-bananas {
+  position: absolute;
+  &--big {
+    top: 50%;
+    left: .5%;
+  }
+  &--middle {
+    right: 3%;
+    top: 30%;
+  }
+}

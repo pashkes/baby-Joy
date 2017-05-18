@@ -1,75 +1,8 @@
 .ad-diapers {
   padding-top: 120px;
-  background: linear-gradient(to bottom, rgba(247,252,255,1) 0%,rgba(247,252,255,0.7) 51%,rgba(247,252,255,0) 53%);
-}
-.ad-diapers__arrow {
-  position: absolute;
-  width: 116px;
-  height: 116px;
-  top: 50%;
-  margin-top: -58px;
-  background-color: #e8f4fd;
-  border: none;
-  font-size: 0;
-  cursor: pointer;
-  z-index: 1;
-  transition: all .35s ease-out;
-  border-radius: 50%;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 13px;
-    height: 23px;
-    margin-top: -11px;
-    background-repeat: no-repeat;
-    transition: all .35s ease-out;
-    z-index: 1;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    background-color: #cbecff;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: all .15s ease-out;
-  }
-  &--prev {
-    left: -58px;
-    &::before {
-      margin-left: 10px;
-      background-image: url(./../img/icon/arrow-back.svg);
-      transform: rotate(-180deg);
-    }
-  }
-  &--next {
-    right: -58px;
-    &::before {
-      margin-left: -20px;
-      background-image: url(./../img/icon/arrow-back.svg);
-    }
-  }
-  &:hover {
-    &::before {
-      margin-right: 10px;
-      background-image: url(./../img/icon/arrow-back-hover.svg);
-    }
-    &::after {
-      transform: scale(1);
-    }
-  }
-  &:hover {
-    .ad-diapers__shares {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-    }
-  }
+  padding-right: 58px;
+  padding-left: 58px;
+  background: linear-gradient(to bottom, rgba(247, 252, 255, 1) 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%);
 }
 
 .ad-diapers__shares {
@@ -109,7 +42,7 @@
 .ad-diapers__info {
   position: relative;
   max-width: 560px;
- flex: none;
+  flex: none;
   h1 {
     position: relative;
     font-family: 'Houschka Rounded Bold';
@@ -134,7 +67,7 @@
 }
 
 .ad-diapers__more {
-  position:relative;
+  position: relative;
   padding-right: 32px;
   padding-left: 32px;
   font-size: 16px;
@@ -142,26 +75,9 @@
   z-index: 1;
   &:hover {
     box-shadow: 0 3px 0 rgba(49, 130, 5, 0.7), inset 0 4px 0 rgba(161, 255, 0, 0.4);
-    svg {
-      fill: #0038af;
-      transform: translateX(10px);
-
-    }
   }
 }
-.ad-diapers__icon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  vertical-align: text-top;
-  svg {
-    fill: #fff;
-    transition: all .35s;
-    transform: none;
 
-  }
-}
 .ad-diapers__moon {
   position: absolute;
   right: 60px;
@@ -171,17 +87,28 @@
   height: 324px;
   opacity: 0.6;
   transform: rotate(-140deg);
+  img {
+    height: 100%;
+  }
 }
+
 .ad-diapers__child {
-  position:relative;
+  position: relative;
   margin-top: -50px;
   margin-bottom: 60px;
+  padding-top: 70px;
+  padding-bottom: 80px;
+  img {
+    height: 100%;
+    width: 100%;
+  }
 }
+
 .ad-diapers__cloud {
   position: absolute;
   &--top {
     top: 0;
-    right: 37px;
+    right: 4%;
     p {
       max-width: 127px;
     }
@@ -195,7 +122,7 @@
   }
   &--bottom {
     bottom: 0;
-    right: 37px;
+    right: 4%;
     p {
       max-width: 175px;
     }
@@ -205,19 +132,21 @@
     top: 50%;
     left: 50%;
     width: 100%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 1;
     color: #637aa8;
     font: 700 17px/1.1 "SegoePrint";
     text-align: center;
   }
 }
+
 .ad-diapers__img {
   img {
     height: 100%;
     width: 100%;
   }
 }
+
 .ad-diapers__aircraft {
   position: absolute;
   bottom: 112px;
@@ -225,6 +154,7 @@
   animation: flight 2.5s ease-out;
   z-index: 2;
 }
+
 @keyframes flight {
   0% {
     opacity: 0;

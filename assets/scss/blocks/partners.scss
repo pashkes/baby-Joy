@@ -1,0 +1,11 @@
+.partners {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 67px;
+  padding-bottom: 96px;
+}
+.partners__item {
+  font-size: 0;
+}
