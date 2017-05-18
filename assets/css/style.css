@@ -214,6 +214,7 @@ a {
 
 svg {
   display: inline-block;
+  vertical-align: top;
   width: 100%;
   height: 100%; }
 
@@ -277,7 +278,8 @@ img {
     fill: #fff;
     transition: all .35s;
     -webkit-transform: none;
-            transform: none; }
+            transform: none;
+    vertical-align: baseline; }
 
 .title-gradient {
   position: relative;
@@ -1332,3 +1334,104 @@ img {
   .team__bg-bananas--middle {
     right: 3%;
     top: 30%; }
+
+.footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: #263580; }
+
+.footer__inner {
+  max-width: 1170px;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
+
+.footer__logo {
+  margin-right: 30px; }
+
+.footer__menu {
+  margin-bottom: 10px; }
+
+.footer__list li {
+  display: inline-block;
+  vertical-align: top; }
+  .footer__list li a {
+    color: #637aa8;
+    font-size: 15px;
+    padding: 0 11px; }
+    .footer__list li a:hover {
+      color: #fff; }
+
+.footer__copy {
+  text-align: center; }
+  .footer__copy p {
+    font-size: 15px; }
+
+.footer__soc-block {
+  font-size: 0; }
+
+.footer__soc {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 34px;
+  height: 33px;
+  margin-right: 19px; }
+  .footer__soc:last-child {
+    margin-right: 0; }
+  .footer__soc:hover svg {
+    opacity: 1; }
+  .footer__soc:hover::before {
+    opacity: 1;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+  .footer__soc::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 33px;
+    background: url(./../img/icon/line-dotter.svg) center no-repeat;
+    opacity: .6;
+    transition: all .35s; }
+
+.footer__link {
+  position: relative;
+  display: block;
+  height: 33px;
+  text-align: center;
+  line-height: 33px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center; }
+  .footer__link--fb .icon {
+    width: 9px;
+    height: 18px; }
+  .footer__link--tw .icon {
+    width: 18px;
+    height: 15px; }
+  .footer__link--vk .icon {
+    width: 18px;
+    height: 10px; }
+  .footer__link--google-plus .icon {
+    width: 16px;
+    height: 16px; }
+  .footer__link--youtube .icon {
+    width: 17px;
+    height: 12px; }
+  .footer__link svg {
+    opacity: .5;
+    fill: #fff;
+    vertical-align: top;
+    transition: all .35s; }
