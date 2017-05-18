@@ -9,7 +9,7 @@
 	<defs>
 		<rect id="SVGID_1_" y="0" width="38.2" height="38.1"/>
 	</defs>
-	<clipPath fill:#bedff4 id="SVGID_2_">
+	<clipPath fill="#bedff4" id="SVGID_2_">
 		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 	</clipPath>
 	<path class="st0" d="M37.4,21.1c1.2-1.2,1.2-3,0-4.2l-16.2-16c-2.8-2.8-7.1,1.4-4.2,4.2l9.5,9.5c0.8,0.8,0.5,1.4-0.6,1.4H3
