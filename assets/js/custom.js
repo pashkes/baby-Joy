@@ -5,6 +5,7 @@
  * Document ready functions
  */
 $(function () {
+  svg4everybody(); // run it now or whenever you are ready
   //sticky header other pages,not home
   var winPos, navHeight;
 

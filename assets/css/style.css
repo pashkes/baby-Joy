@@ -285,10 +285,8 @@ img {
   position: relative;
   padding-bottom: 12px;
   font-family: 'Houschka Rounded Bold';
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 32px;
-  background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%); }
+  color: #0038af;
+  font-size: 32px; }
   .title-gradient::before {
     content: '';
     position: absolute;
@@ -303,6 +301,12 @@ img {
     background-position: left;
     left: 50%;
     margin-left: -55px; }
+
+@supports (-webkit-background-clip: text) {
+  .title-gradient {
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%); } }
 
 .icon-cart {
   display: inline-block;
@@ -837,12 +841,16 @@ img {
   .ad-diapers__info h1 {
     position: relative;
     font-family: 'Houschka Rounded Bold';
-    background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: #0038af;
     font-size: 57px;
     font-weight: 700;
     z-index: 1; }
+
+@supports (-webkit-background-clip: text) {
+  .ad-diapers__info h1 {
+    background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
+    -webkit-background-clip: text;
+    color: transparent; } }
 
 .ad-diapers__text {
   margin-bottom: 47px;
