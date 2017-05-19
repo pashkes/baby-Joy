@@ -234,8 +234,6 @@ img {
   font-weight: 700;
   cursor: pointer;
   transition: all .35s; }
-  .btn:hover {
-    color: #008aff; }
   .btn--border-green {
     background-image: none;
     background-color: transparent;
@@ -266,6 +264,28 @@ img {
       .btn--cart:hover .icon-cart {
         -webkit-animation: joltingCart .8s ease-out;
                 animation: joltingCart .8s ease-out; }
+    .btn--cart .icon-cart {
+      z-index: 3; }
+  .btn--bg-green {
+    -webkit-backface-visibility: hidden;
+    z-index: 1; }
+    .btn--bg-green .btn__gradient-trs {
+      position: relative;
+      z-index: 3; }
+    .btn--bg-green::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 24px;
+      background-image: linear-gradient(to right, #5385ee 0%, #6bbafd 100%);
+      transition: opacity 0.5s ease-out;
+      z-index: 2;
+      opacity: 0; }
+    .btn--bg-green:hover::before {
+      opacity: 1; }
 
 .icon-arrow {
   display: inline-block;
@@ -309,9 +329,11 @@ img {
     background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%); } }
 
 .icon-cart {
+  position: relative;
   display: inline-block;
   width: 22px;
-  height: 21px; }
+  height: 21px;
+  z-index: 3; }
   .icon-cart svg {
     display: inline-block;
     fill: #ffffff; }
@@ -406,7 +428,8 @@ img {
   height: 128px;
   border-radius: 25px;
   background-color: #ffd25e;
-  transition: all .35s; }
+  transition: all .35s;
+  z-index: 10; }
   .to-top .icon-arrow {
     position: absolute;
     left: 50%;
@@ -565,27 +588,27 @@ img {
 .header__contacts {
   margin-right: 19px;
   font-size: 0; }
-
-.header__time-delivery {
-  display: inline-block; }
-
-.header__tel {
-  display: inline-block;
-  margin-right: 17px;
-  vertical-align: middle;
-  color: rgba(99, 122, 168, 0.8);
-  font-size: 13px;
-  line-height: 30px; }
-  .header__tel--icon {
-    color: #58af09; }
-    .header__tel--icon:hover .header__icon svg {
-      -webkit-transform: rotate(-110deg);
-              transform: rotate(-110deg); }
-  .header__tel .header__icon {
+  .header__contacts a {
+    display: inline-block;
+    margin-right: 17px;
+    vertical-align: middle;
+    color: rgba(99, 122, 168, 0.8);
+    font-size: 13px;
+    line-height: 30px; }
+    .header__contacts a:first-child {
+      color: #58af09; }
+      .header__contacts a:first-child:hover .icon svg {
+        -webkit-transform: rotate(-110deg);
+                transform: rotate(-110deg); }
+    .header__contacts a:last-child {
+      margin-right: 0; }
+  .header__contacts .header__time-delivery {
+    display: inline-block; }
+  .header__contacts .icon {
     display: inline-block;
     margin-right: 2px;
     line-height: 20px; }
-    .header__tel .header__icon svg {
+    .header__contacts .icon svg {
       display: inline-block;
       vertical-align: top;
       width: 17px;
@@ -594,8 +617,6 @@ img {
               transform: rotate(-90deg);
       fill: #5abd11;
       transition: all .4s ease-out; }
-  .header__tel:last-child {
-    margin-right: 0; }
 
 .header__lang {
   margin-right: 32px; }
@@ -628,7 +649,8 @@ img {
   line-height: 17px;
   vertical-align: middle;
   text-align: center;
-  border-radius: 50%; }
+  border-radius: 50%;
+  z-index: 3; }
 
 @-webkit-keyframes joltingCart {
   0% {
@@ -1252,6 +1274,7 @@ img {
     vertical-align: middle; }
 
 .partners {
+  position: relative;
   max-width: 1170px;
   padding: 0 15px;
   width: 100%;
@@ -1263,7 +1286,8 @@ img {
   -webkit-box-pack: justify;
           justify-content: space-between;
   padding-top: 67px;
-  padding-bottom: 96px; }
+  padding-bottom: 96px;
+  z-index: 10; }
 
 .partners__item {
   font-size: 0; }
@@ -1343,7 +1367,8 @@ img {
 .team {
   position: relative;
   padding-top: 80px;
-  text-align: center; }
+  text-align: center;
+  z-index: 10; }
 
 .team__inner {
   font-size: 0;
