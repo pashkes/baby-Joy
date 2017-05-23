@@ -84,8 +84,15 @@
   box-shadow: 0 2px 0 rgba(49, 130, 5, 0.7), inset 0 2px 0 rgba(161, 255, 0, 0.4);
   z-index: 1;
   &:hover {
-    box-shadow: 0 3px 0 rgba(49, 130, 5, 0.7), inset 0 4px 0 rgba(161, 255, 0, 0.4);
+    color: #fff;
+    box-shadow: 0 2px 0 rgba(0, 138, 255, .7), inset 0 2px 0 rgba(0, 138, 255, .9);
+    .icon-arrow {
+      svg {
+        fill: #ffffff;
+      }
+    }
   }
+
 }
 
 .ad-diapers__moon {

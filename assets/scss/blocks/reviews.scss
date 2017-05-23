@@ -31,7 +31,18 @@
     display: inline;
   }
 }
-
+.reviews__quote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 51px;
+  height: 46px;
+  transform: rotate(180deg);
+  z-index: -1;
+  svg {
+    fill: #fff;
+  }
+}
 .reviews__heart {
   position: absolute;
   filter: blur(5px);
@@ -69,10 +80,10 @@
 
 .reviews__post {
   position: relative;
-  padding-top: 45px;
-  padding-bottom: 170px;
-  padding-right: 10px;
-  padding-left: 10px;
+  max-width: 770px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 25px 10px 170px 10px;
   &::before {
     content: '';
     position: absolute;
@@ -85,10 +96,8 @@
 }
 
 .reviews__text {
-  max-width: 770px;
   margin-bottom: 20px;
-  margin-right: auto;
-  margin-left: auto;
+
 
   blockquote {
     padding-bottom: 20px;

@@ -1,0 +1,10 @@
+.categories__inner {
+  @include container;
+  padding-top: 35px;
+  padding-bottom: 67px;
+  h2 {
+    display: inline-block;
+    margin-bottom: 22px;
+    vertical-align: top;
+  }
+}

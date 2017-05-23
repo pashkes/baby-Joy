@@ -1,0 +1,143 @@
+.filter {
+  max-width: 364px;
+}
+.filter__group {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 26px 32px;
+  padding-top: 75px;
+  border: 1px solid #cfedff;
+  border-radius: 5px;
+}
+.filter__title {
+  position: absolute;
+  top: 27px;
+  left: 32px;
+  padding-bottom: 9px;
+  font-size: 19px;
+  font-weight: 700;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 191px;
+    height: 1px;
+    background-color: #ffd360;
+  }
+}
+.filter__field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.filter__input {
+  display: none;
+}
+.filter__label {
+  flex: 1;
+  position: relative;
+  padding-left: 56px;
+  color: #637aa8;
+  font-size: 17px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.filter__input + .filter__label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px solid #cfedff;
+  transform: translateY(-50%);
+}
+.filter__input:checked + .filter__label::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 14px;
+  height: 12px;
+  transform: translateY(-50%);
+  background-image: url(./../img/icon/select.svg);
+  background-repeat: no-repeat;
+}
+.filter__input:checked + .filter__label ~ .filter__info{
+    background-color: #7cd3f4;
+    color: #fff;
+    &::before {
+      background-color: #7cd3f4;
+      border-color: #7cd3f4;
+    }
+}
+.filter__icon {
+  position: absolute;
+  top: 50%;
+  left: 22px;
+  width: 22px;
+  text-align: right;
+
+  transform: translateY(-50%);
+  &--newborn {
+    svg {
+      width: 20px;
+      height: 24px;
+    }
+  }
+  &--tiny {
+    svg {
+      width: 22px;
+      height: 17px;
+    }
+  }
+  &--middle {
+    svg {
+      width: 19px;
+      height: 23px;
+    }
+  }
+  &--big {
+    padding-right: 1px;
+
+    svg {
+      width: 16px;
+      height: 26px;
+    }
+  }
+  &--adolescent {
+    padding-right: 2px;
+    svg {
+      width: 15px;
+      height: 25px;
+    }
+  }
+}
+.filter__info {
+  position: relative;
+  min-width: 67px;
+  margin-left: auto;
+  padding: 2px 5px;
+  border: 1px solid #aae0f5;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #637aa8;
+  transition: all .3s ease-out;
+  &::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 50%;
+    transform: translateY(-50%) rotate(130deg);
+    width: 5px;
+    height: 6px;
+    border-right: 1px solid #aae0f5;
+    border-bottom: 1px solid #aae0f5;
+    background-color: #fff;
+    transition: all .3s ease-out;
+  }
+}

@@ -4,6 +4,11 @@
 body {
   font: 19px/1.4 'Lato', Arial serif;
   color: #637aa8;
+  &:not(.home) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 }
 
 *,
@@ -118,17 +123,16 @@ img {
 }
 
 .icon-arrow {
+  position: relative;
   display: inline-block;
   width: 16px;
   height: 16px;
   margin-left: 8px;
   vertical-align: text-top;
   transition: all .35s;
-
+  z-index: 3;
   svg {
     fill: #fff;
-    transition: all .35s;
-    transform: none;
     vertical-align: baseline;
   }
 }
