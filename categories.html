@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link id="favicon" rel="shortcut icon" href="assets/img/favicon2x.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon_ios144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon_ios114.png">
+    <title>Baby Joy</title>
+</head>
+<body>
+<header class="header ">
+    <div class="header__top-panel">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="#">
+                    <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
+                </a>
+            </div>
+            <div class="header__top-wrapper">
+                <div class="header__top">
+                    <form action="get" class="header__info">
+                        <label class="header__loc" for="you-city">Ваш город: </label>
+                        <div class="header__sel-wrapper">
+                            <select class="header__loc-select" id="you-city">
+                                <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
+                            </select>
+                        </div>
+                        <span class="header__time-delivery">Доставка товара 3 дня</span>
+                    </form>
+                    <div class="header__contacts">
+                        <a href="tel:+781073247333">
+                                <span class="icon">
+                                 <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-phone"></use>
+                                </svg>
+                            </span> +7 810 732 473 33
+                        </a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                    </div>
+                    <a href="#" class="header__lang">
+                        <img src="assets/img/icon/flag.svg" width="20" height="20" alt="ru">
+                    </a>
+                    <button class="header__cart">
+                            <span class="icon-cart">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                        </svg>
+                    </span>
+                        <span class="header__quantity">2</span>
+                    </button>
+                    <button class="burger js-burger burger__htx js-burger" type="button"><span>toggle menu</span>
+                    </button>
+                </div>
+                <div class="header__bottom">
+                    <div class="kids-filter">
+                        <a href="#" class="kids-filter__age kids-filter__age--newborn">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                        </svg>
+                    </span> Новорожденный
+                        </a>
+                        <a href="#" class="kids-filter__age  kids-filter__age--year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                        </svg>
+                    </span> 3-12 месяцев
+                        </a>
+                        <a href="#" class="kids-filter__age  kids-filter__age--two-year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                        </svg>
+                    </span> до 2х лет
+                        </a>
+                    </div>
+                    <nav class="menu js-menu">
+                        <ul class="menu__list">
+                            <li><a href="#">Cкидки</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Партнеры</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+
+                        <div class="kids-filter">
+                            <a href="#" class="kids-filter__age kids-filter__age--newborn">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                        </svg>
+                    </span> Новорожденный
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                        </svg>
+                    </span> 3-12 месяцев
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--two-year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                        </svg>
+                    </span> до 2х лет
+                            </a>
+                        </div>
+                        <form action="get" class="header__info">
+                            <label class="header__loc" for="you-city">Ваш город: </label>
+                            <div class="header__sel-wrapper">
+                                <select class="header__loc-select" id="you-city">
+                                    <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
+                                </select>
+                            </div>
+                            <span class="header__time-delivery">Доставка товара 3 дня</span>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="categories">
+    <div class="categories__inner">
+        <div class="breadcrumb">
+            <span><a href="#">Home</a></span>
+            <span><a href="#">Подгузники</a></span>
+            <span>Подгузники</span>
+        </div>
+        <h2><span class="title-gradient title-gradient--center">Подгузники</span></h2>
+        <div class="categories__main">
+            <form class="filter">
+                <fieldset class="filter__group">
+                    <legend class="filter__title">Размер подгузников</legend>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-diapers-newborn" name="size-diapers">
+                        <label for="size-diapers-newborn" class="filter__label">Для новорожденных</label>
+                        <span class="filter__icon  filter__icon--newborn">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">0-4 кг</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-diapers-tiny" name="size-diapers">
+                        <label for="size-diapers-tiny" class="filter__label">Маленький</label>
+                        <span class="filter__icon  filter__icon--tiny">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">3.5-7 кг</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-diapers-middle" name="size-diapers"
+                               checked>
+                        <label for="size-diapers-middle" class="filter__label">Средний</label>
+                        <span class="filter__icon  filter__icon--middle">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-age-middle"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">6-12 кг</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-diapers-big" name="size-diapers">
+                        <label for="size-diapers-big" class="filter__label">Большой</label>
+                        <span class="filter__icon  filter__icon--big">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">6-12 кг</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-diapers-adolescent" name="size-diapers">
+                        <label for="size-diapers-adolescent" class="filter__label">Подростковый</label>
+                        <span class="filter__icon  filter__icon--adolescent">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-age-big"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">14-25 кг</span>
+                    </div>
+                </fieldset>
+
+                <fieldset class="filter__group">
+                    <legend class="filter__title">Размер упаковки</legend>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-box-small" name="size-box" checked>
+                        <label for="size-box-small" class="filter__label">Маленький</label>
+                        <span class="filter__icon  filter__icon--box-small">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-box-small"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">9 шт</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-box-middle" name="size-box">
+                        <label for="size-box-middle" class="filter__label">Средний</label>
+                        <span class="filter__icon  filter__icon--box-middle">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-box-middle"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">42 шт</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="size-box-big" name="size-box">
+                        <label for="size-box-big" class="filter__label">Большой</label>
+                        <span class="filter__icon  filter__icon--box-big">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-box-big"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">56 шт</span>
+                    </div>
+                </fieldset>
+                <fieldset class="filter__group">
+                    <legend class="filter__title">Тип</legend>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="type-diapers-1" name="type" checked>
+                        <label for="type-diapers-1" class="filter__label">Маленький</label>
+                        <span class="filter__icon  filter__icon--type-1">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-type-1"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">9 шт</span>
+                    </div>
+                    <div class="filter__field-wrapper">
+                        <input type="checkbox" class="filter__input" id="type-diapers-2" name="type">
+                        <label for="type-diapers-2" class="filter__label">Средний</label>
+                        <span class="filter__icon  filter__icon--type-2">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="assets/img/symbol.svg#icon-type-2"></use>
+                            </svg>
+                        </span>
+                        <span class="filter__info">42 шт</span>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="categories__catalog">
+                <div class="categories__top">
+                    <ul class="tag">
+                        <li class="tag__item">
+                            Средний
+                            <button class="tag__remove" type="button">remove tag</button>
+                        </li>
+                        <li class="tag__item">
+                            Меленький
+                            <button class="tag__remove" type="button">remove tag</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="product__list">
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="" class="product__img">
+                                <img src="assets/img/product-2.png" width="206" height="233"
+                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
+                            </a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54577</span>
+                                <span class="product__price">5 600 т</span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
+                                                                  height="233"
+                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54782</span>
+                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="" class="product__img">
+                                <img src="assets/img/product-2.png" width="206" height="233"
+                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
+                            </a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54577</span>
+                                <span class="product__price">5 600 т</span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
+                                                                  height="233"
+                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54782</span>
+                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="" class="product__img">
+                                <img src="assets/img/product-2.png" width="206" height="233"
+                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
+                            </a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54577</span>
+                                <span class="product__price">5 600 т</span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="product__item">
+                        <div class="product__top">
+                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
+                                                                  height="233"
+                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
+                            <a href="#" class="product__icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product__bottom">
+                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
+                            <div class="product__info">
+                                <span class="product__vendor">Артикул: 54782</span>
+                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
+                            </div>
+                            <div class="product__btns">
+                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
+                                </button>
+                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                                    <span class="btn__gradient-trs">Купить</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="partners">
+        <h2 class="partners__title"><span class="title-gradient title-gradient--center">Хотите стать нашим партнером?</span>
+        </h2>
+        <a href="#" class="partners__btn btn  btn--bg-blue">
+            <span class="btn__gradient-trs">Напишите нам</span>
+        </a>
+        <div class="partners__inner">
+            <div class="partners__item"><img src="assets/img/partner-icon-1.svg" width="165" height="45" alt="unicharm">
+            </div>
+            <div class="partners__item"><img src="assets/img/partner-icon-2.svg" width="149" height="53" alt="disney">
+            </div>
+            <div class="partners__item"><img src="assets/img/partner-icon-3.png" width="122" height="67" alt="baby Joy">
+            </div>
+            <div class="partners__item"><img src="assets/img/partner-icon-4.png" width="207" height="67" alt="sofy">
+            </div>
+            <div class="partners__item"><img src="assets/img/partner-icon-5.png" width="137" height="76" alt="lifree">
+            </div>
+            <div class="partners__item"><img src="assets/img/partner-icon-6.svg" width="132" height="132"
+                                             alt="japan quality"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__inner">
+            <a class="footer__logo" href="#">
+                <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
+            </a>
+            <div class="footer__center">
+                <nav class="footer__menu">
+                    <ul class="footer__list">
+                        <li><a href="">Cкидки</a></li>
+                        <li><a href="">Акции</a></li>
+                        <li><a href="">Партнеры</a></li>
+                        <li><a href="">Отзывы</a></li>
+                        <li><a href="">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="footer__copy">
+                    <p>Copyright ©. Все права защищены</p>
+                </div>
+            </div>
+            <ul class="footer__soc-block">
+                <li class="footer__soc">
+                    <a href="#" class="footer__link  footer__link--fb">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-fb"></use>
+                    </svg>
+                </span> facebook
+                    </a>
+                </li>
+                <li class="footer__soc">
+                    <a href="#" class="footer__link  footer__link--tw">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-tw"></use>
+                    </svg>
+                </span> twitter
+                    </a>
+                </li>
+                <li class="footer__soc">
+                    <a href="#" class="footer__link  footer__link--vk">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-vk"></use>
+                    </svg>
+                </span> vk
+                    </a>
+                </li>
+                <li class="footer__soc">
+                    <a href="#" class="footer__link  footer__link--google-plus">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
+                    </svg>
+                </span> google-plus
+                    </a>
+                </li>
+                <li class="footer__soc">
+                    <a href="#" class="footer__link  footer__link--youtube">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
+                    </svg>
+                </span> youtube
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/svg4body.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
