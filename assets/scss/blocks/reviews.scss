@@ -1,6 +1,6 @@
 .reviews {
   position: relative;
-  padding: 80px 54px 70px 54px;
+  padding: 80px 54px 0 54px;
   text-align: center;
   overflow: hidden;
   &::before {
@@ -11,21 +11,31 @@
     bottom: 70px;
     left: 0;
     background-image: linear-gradient(to left, #ffffff 0%, #ffd25e 100%);
+    z-index: -2;
   }
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
-    height: 70px;
     right: 0;
     left: 0;
+    height: 81px;
     background-color: #fff;
+    z-index: -1;
+  }
+  .slider-arrow {
+    top: 50%;
+    margin-top: -58px;
+  }
+  .slick-slide img {
+    display: inline;
   }
 }
 
 .reviews__heart {
   position: absolute;
   filter: blur(5px);
+  z-index: -1;
   &--big {
     top: 35%;
     left: 5%;
@@ -37,7 +47,7 @@
     transform: rotate(20deg);
   }
   &--small {
-    bottom: 15%;
+    bottom: 25%;
     right: 10%;
     transform: scale(.7) rotate(-40deg);
     opacity: .7;
@@ -59,14 +69,27 @@
 
 .reviews__post {
   position: relative;
-  @include container;
-  max-width: 770px;
   padding-top: 45px;
-  padding-bottom: 91px;
+  padding-bottom: 170px;
+  padding-right: 10px;
+  padding-left: 10px;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 81px;
+    background-color: #fff;
+  }
 }
 
 .reviews__text {
+  max-width: 770px;
   margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+
   blockquote {
     padding-bottom: 20px;
     font-size: 19px;
@@ -96,21 +119,51 @@
 
 .reviews__photo {
   position: absolute;
-  bottom: -158px;
+  bottom: 0;
   left: 50%;
   width: 162px;
   height: 162px;
   line-height: 162px;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   text-align: center;
   font-size: 0;
   border-radius: 50%;
   box-shadow: inset 0 0 0 12px #fffdf7,
   inset 0 0 0 24px #fff6e0,
   inset 0 0 0 36px #ffeab3;
-  z-index: 1;
+  z-index: 10;
   img {
     border-radius: 50%;
     vertical-align: middle;
+  }
+}
+@media (max-width: 768px) {
+    .reviews {
+      padding: 40px 23px 0 23px;
+      &:before {
+        top: 5%;
+      }
+    }
+  .reviews__title {
+    span {
+      font-size: 27px;
+    }
+  }
+  .reviews__text {
+    blockquote {
+      font-size: 17px;
+    }
+  }
+  .reviews__post {
+    position: relative;
+    padding-top: 15px;
+    z-index: 2;
+  }
+  .reviews__write {
+    display: block;
+    max-width: 188px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
   }
 }

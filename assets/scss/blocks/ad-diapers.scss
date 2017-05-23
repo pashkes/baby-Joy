@@ -1,5 +1,5 @@
 .ad-diapers {
-  padding-top: 120px;
+  position: relative;
   padding-right: 58px;
   padding-left: 58px;
   background: linear-gradient(to bottom, rgba(247, 252, 255, 1) 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%);
@@ -36,6 +36,8 @@
 .ad-diapers__slide {
   position: relative;
   @include container;
+  padding-top: 120px;
+
   display: flex;
 }
 
@@ -46,19 +48,27 @@
   h1 {
     position: relative;
     font-family: 'Houschka Rounded Bold';
-    background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: #0038af;
     font-size: 57px;
     font-weight: 700;
     z-index: 1;
   }
 }
 
+@supports (-webkit-background-clip: text) {
+  .ad-diapers__info {
+    h1 {
+      background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+}
+
 .ad-diapers__text {
-  margin-bottom: 47px;
   max-width: 380px;
   p {
+    margin-bottom: 47px;
     color: #637aa8;
     font-size: 20px;
     font-weight: 300;
@@ -140,13 +150,6 @@
   }
 }
 
-.ad-diapers__img {
-  img {
-    height: 100%;
-    width: 100%;
-  }
-}
-
 .ad-diapers__aircraft {
   position: absolute;
   bottom: 112px;
@@ -164,5 +167,96 @@
     opacity: 1;
     transform: translateX(0);
 
+  }
+}
+
+@media (max-width: 1170px) {
+  .ad-diapers__aircraft {
+    bottom: 0;
+    left: 20px;
+  }
+  .ad-diapers__cloud {
+    max-width: 230px;
+  }
+  .ad-diapers__cloud p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ad-diapers {
+    position: static !important;
+    top: auto !important;
+    padding-right: 23px;
+    padding-left: 23px;
+    background-image: linear-gradient(to bottom, #f7fcff 0%, rgba(247, 252, 255, 0.7) 91%, rgba(247, 252, 255, 0) 100%);
+  }
+.clone-ad-diapers {
+  height: auto !important;
+}
+  .ad-diapers__slide {
+    flex-direction: column;
+    padding-top: 30px;
+    top: auto !important;
+    opacity: 1 !important;
+  }
+  .ad-diapers__info {
+    max-width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    h1 {
+      font-size: 40px;
+    }
+  }
+  .ad-diapers__text {
+    max-width: 100%;
+    p {
+      font-size: 16px;
+      margin-bottom: 17px;
+    }
+  }
+  .ad-diapers__moon {
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+  }
+  .ad-diapers__more {
+    font-size: 13px;
+  }
+  .ad-diapers__child {
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 60px;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ad-diapers__cloud {
+    display: none;
+  }
+  .ad-diapers__aircraft {
+    display: none;
+  }
+  .ad-diapers__info {
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .ad-diapers__shares {
+    background-image: none;
+    background-color: #fff;
+    color: #003fff;
+    -webkit-background-clip: inherit;
+  }
+}
+
+@media (max-width: 425px) {
+  .ad-diapers__info {
+    margin-bottom: 30px;
   }
 }

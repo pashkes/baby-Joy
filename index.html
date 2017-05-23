@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,16 +10,14 @@
     <link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon_ios114.png">
     <title>Baby Joy</title>
 </head>
+
 <body class="home">
-<header class="header">
+<header class="header ">
     <div class="header__top-panel">
         <div class="header__inner">
             <div class="header__logo">
                 <a href="#">
-                    <picture>
-                        <img src="assets/img/logo.png" srcset="assets/img/logo@2x.png" width="165" height="50"
-                             alt="Baby Joy">
-                    </picture>
+                    <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
                 </a>
             </div>
             <div class="header__top-wrapper">
@@ -33,23 +32,22 @@
                         <span class="header__time-delivery">Доставка товара 3 дня</span>
                     </form>
                     <div class="header__contacts">
-                        <a href="tel:+781073247333" class="header__tel  header__tel--icon">
-                            <span class="header__icon">
+                        <a href="tel:+781073247333">
+                                <span class="icon">
                                  <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                          xlink:href="assets/img/symbol.svg#icon-phone"></use>
                                 </svg>
-                            </span>
-                            +7 810 732 473 33
+                            </span> +7 810 732 473 33
                         </a>
-                        <a href="tel:+781073247333" class="header__tel">+7 810 732 473 33</a>
-                        <a href="tel:+781073247333" class="header__tel">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
                     </div>
                     <a href="#" class="header__lang">
                         <img src="assets/img/icon/flag.svg" width="20" height="20" alt="ru">
                     </a>
                     <button class="header__cart">
-                    <span class="icon-cart">
+                            <span class="icon-cart">
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="assets/img/symbol.svg#icon-cart"></use>
@@ -57,39 +55,37 @@
                     </span>
                         <span class="header__quantity">2</span>
                     </button>
+                    <button class="burger js-burger burger__htx js-burger" type="button"><span>toggle menu</span>
+                    </button>
                 </div>
-
                 <div class="header__bottom">
                     <div class="kids-filter">
                         <a href="#" class="kids-filter__age kids-filter__age--newborn">
-                    <span class="kids-filter__icon">
+                                <span class="kids-filter__icon">
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="assets/img/symbol.svg#icon-age-1"></use>
                         </svg>
-                    </span>
-                            Новорожденный
+                    </span> Новорожденный
                         </a>
                         <a href="#" class="kids-filter__age  kids-filter__age--year">
-                    <span class="kids-filter__icon">
+                                <span class="kids-filter__icon">
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="assets/img/symbol.svg#icon-age-2"></use>
                         </svg>
-                    </span>
-                            3-12 месяцев
+                    </span> 3-12 месяцев
                         </a>
                         <a href="#" class="kids-filter__age  kids-filter__age--two-year">
-                    <span class="kids-filter__icon">
+                                <span class="kids-filter__icon">
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="assets/img/symbol.svg#icon-age-3"></use>
                         </svg>
-                    </span>
-                            до 2х лет
+                    </span> до 2х лет
                         </a>
                     </div>
-                    <nav class="menu">
+                    <nav class="menu js-menu">
                         <ul class="menu__list">
                             <li><a href="#">Cкидки</a></li>
                             <li><a href="#">Акции</a></li>
@@ -97,14 +93,50 @@
                             <li><a href="#">Отзывы</a></li>
                             <li><a href="#">Контакты</a></li>
                         </ul>
+
+                        <div class="kids-filter">
+                            <a href="#" class="kids-filter__age kids-filter__age--newborn">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                        </svg>
+                    </span> Новорожденный
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                        </svg>
+                    </span> 3-12 месяцев
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--two-year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                        </svg>
+                    </span> до 2х лет
+                            </a>
+                        </div>
+                        <form action="get" class="header__info">
+                            <label class="header__loc" for="you-city">Ваш город: </label>
+                            <div class="header__sel-wrapper">
+                                <select class="header__loc-select" id="you-city">
+                                    <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
+                                </select>
+                            </div>
+                            <span class="header__time-delivery">Доставка товара 3 дня</span>
+                        </form>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
     <div class="ad-diapers">
-        <button class="slider-arrow  slider-arrow--prev" type="button">назад</button>
-        <button class="slider-arrow  slider-arrow--next" type="button">вперед
+        <button class="slider-arrow  slider-arrow--prev js-header-arrow-prev" type="button">назад</button>
+        <button class="slider-arrow  slider-arrow--next js-header-arrow-next" type="button">вперед
             <span class="ad-diapers__shares">Акции</span>
         </button>
         <ul class="js-ad-diapers">
@@ -113,8 +145,7 @@
                     <div class="ad-diapers__info">
                         <h1>Подгузники BabyJoy</h1>
                         <div class="ad-diapers__text">
-                            <p>Подгузники 100% японского качества для
-                                вашего малыша</p>
+                            <p>Подгузники 100% японского качества для вашего малыша</p>
                         </div>
                         <a href="#" class="ad-diapers__more  btn  btn--arrow">
                             Перейти в каталог
@@ -132,7 +163,48 @@
                         <picture>
                             <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
                                  height="407" alt="child">
-
+                        </picture>
+                        <div class="ad-diapers__cloud  ad-diapers__cloud--top">
+                            <div class="ad-diapers__img"><img src="assets/img/cloud-top.png" width="245" height="149"
+                                                              alt="cloud"></div>
+                            <p>...и сухо, если описаюсь</p>
+                        </div>
+                        <div class="ad-diapers__cloud  ad-diapers__cloud--middle">
+                            <div class="ad-diapers__img"><img src="assets/img/cloud-middle.png" width="241" height="164"
+                                                              alt="cloud"></div>
+                            <p>В них так мягко и приятно...</p>
+                        </div>
+                        <div class="ad-diapers__cloud  ad-diapers__cloud--bottom">
+                            <div class="ad-diapers__img"><img src="assets/img/cloud-bottom.png" width="271" height="169"
+                                                              alt="cloud"></div>
+                            <p>Так много места, чтобы поерзать и повертеться!</p>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="ad-diapers__slide">
+                    <div class="ad-diapers__info">
+                        <h1>Подгузники BabyJoy</h1>
+                        <div class="ad-diapers__text">
+                            <p>Подгузники 100% японского качества для вашего малыша</p>
+                        </div>
+                        <a href="#" class="ad-diapers__more  btn  btn--arrow">
+                            Перейти в каталог
+                            <span class="icon-arrow">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-arrow-full"></use>
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="ad-diapers__moon"><img src="assets/img/moon.svg" width="339" height="324"
+                                                           alt="moon"></div>
+                    </div>
+                    <div class="ad-diapers__child">
+                        <picture>
+                            <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
+                                 height="407" alt="child">
                         </picture>
                         <div class="ad-diapers__cloud  ad-diapers__cloud--top">
                             <div class="ad-diapers__img"><img src="assets/img/cloud-top.png" width="245" height="149"
@@ -153,11 +225,11 @@
                 </article>
             </li>
         </ul>
-        <div class="ad-diapers__aircraft"><img src="assets/img/aircraft.svg" width="300" height="68" alt="quality">
+        <div class="ad-diapers__aircraft"><img src="assets/img/aircraft.png" width="300" height="68" alt="quality">
         </div>
+        <div class="header__mouse">to scroll bottom</div>
+        <div class="semicircle-blue"><img src="assets/img/bg-circle.svg" alt="circle-svg"></div>
     </div>
-    <div class="header__mouse">to scroll bottom</div>
-    <div class="semicircle-blue"><img src="assets/img/bg-circle.svg" alt="circle-svg"></div>
 </header>
 <main class="wrapper-home">
     <article class="product">
@@ -197,14 +269,15 @@
                     </div>
                     <div class="product__btns">
                         <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
-                        <a href="#" class="product__buy btn  btn--cart">
-                             <span class="icon-cart">
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                          xlink:href="assets/img/symbol.svg#icon-cart"></use>
                                 </svg>
                             </span>
-                            Купить</a>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -230,29 +303,28 @@
                     </div>
                     <div class="product__btns">
                         <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
-                        <a href="#" class="product__buy btn  btn--cart">
-                            <span class="icon-cart">
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                          xlink:href="assets/img/symbol.svg#icon-cart"></use>
                                 </svg>
                             </span>
-                            Купить</a>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
                     </div>
                 </div>
             </section>
             <section class="product__item">
                 <span class="product__sticker product__sticker--popular">Популярно</span>
                 <div class="product__top">
-                    <a href="" class="product__img">
-                        <img src="assets/img/product-3.png" width="268" height="233"
-                             alt="BabyJoy mini для cамых маленьких 56 штук">
-                        <a href="#" class="product__icon">
-                            <svg>
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     xlink:href="assets/img/symbol.svg#icon-search"></use>
-                            </svg>
-                        </a>
+                    <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268" height="233"
+                                                          alt="BabyJoy mini для cамых маленьких 56 штук"></a>
+                    <a href="#" class="product__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-search"></use>
+                        </svg>
                     </a>
                 </div>
                 <div class="product__bottom">
@@ -263,13 +335,15 @@
                     </div>
                     <div class="product__btns">
                         <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
-                        <a href="#" class="product__buy btn  btn--cart">
-                            <span class="icon-cart">
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                          xlink:href="assets/img/symbol.svg#icon-cart"></use>
                                 </svg>
-                            </span>Купить</a>
+                            </span>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -278,7 +352,8 @@
     <section class="reviews">
         <h2 class="reviews__title"><span class="title-gradient title-gradient--center">Мы любим наших клиентов!</span>
         </h2>
-        <button class="reviews__write btn" type="button">Написать отзыв</button>
+        <button class="reviews__write btn btn--bg-green" type="button"><span
+                class="btn__gradient-trs">Написать отзыв</span></button>
         <a href="" class="reviews__more  btn  btn--border-green  btn--arrow">Читать больше
             <span class="icon-arrow">
                 <svg>
@@ -292,9 +367,21 @@
                 <section class="reviews__post">
                     <article class="reviews__text">
                         <blockquote>Я очень довольна продукцией babyjoy.kz и всем советую, малышь стал спать лучше и муж
-                            подобрел,
-                            рекомендую! Заказывайте новой почтой - удобне оплачивать, быстрее приходит и для меня лично
-                            забирать удобнее.
+                            подобрел, рекомендую! Заказывайте новой почтой - удобне оплачивать, быстрее приходит и для
+                            меня лично забирать удобнее.
+                        </blockquote>
+                    </article>
+                    <cite class="reviews__user">Лана Дель Рей</cite>
+                    <div class="reviews__photo"><img src="assets/img/user-photo.jpg" width="90" height="90"
+                                                     alt="Лана Дель Рей"></div>
+                </section>
+            </li>
+            <li>
+                <section class="reviews__post">
+                    <article class="reviews__text">
+                        <blockquote>Я очень довольна продукцией babyjoy.kz и всем советую, малышь стал спать лучше и муж
+                            подобрел, рекомендую! Заказывайте новой почтой - удобне оплачивать, быстрее приходит и для
+                            меня лично забирать удобнее.
                         </blockquote>
                     </article>
                     <cite class="reviews__user">Лана Дель Рей</cite>
@@ -303,8 +390,10 @@
                 </section>
             </li>
         </ul>
-        <button class="slider-arrow  slider-arrow--prev" type="button">назад</button>
-        <button class="slider-arrow  slider-arrow--next slider-arrow--active" type="button">вперед</button>
+        <button class="slider-arrow  slider-arrow--prev  js-reviews-arrow-prev" type="button">назад</button>
+        <button class="slider-arrow  slider-arrow--next slider-arrow--active  js-reviews-arrow-next" type="button">
+            вперед
+        </button>
         <div class="reviews__bg-circle"><img src="assets/img/review-gradient.svg" alt="circle gradient"></div>
         <div class="reviews__heart  reviews__heart--big"><img src="assets/img/hearts.svg" width="56" height="56"
                                                               alt="heart"></div>
@@ -332,8 +421,7 @@
                                              alt="№1 В мире подгузников"></div>
                 <h3>№1 В мире подгузников</h3>
                 <div class="about__text">
-                    <p>BabyJoy признаны подгузниками
-                        японской качества №1</p>
+                    <p>BabyJoy признаны подгузниками японской качества №1</p>
                 </div>
             </div>
             <div class="about__item">
@@ -368,22 +456,16 @@
         <div class="team__inner">
             <div class="team__text">
                 <p>BabyJoy products have many features customized for each stage of your baby's development! The
-                    features
-                    change in accordance with the various stages of growth and development. They take into account not
-                    only
-                    changes in baby's size, but also changes in baby's activities and the quantity and consistency of
-                    baby's
-                    discharge. Choose the BabyJoy size that best fits your baby's current stage of development.</p>
+                    features change in accordance with the various stages of growth and development. They take into
+                    account not only changes in baby's size, but also changes in baby's activities and the quantity and
+                    consistency of baby's discharge. Choose the BabyJoy size that best fits your baby's current stage of
+                    development.</p>
             </div>
             <img src="assets/img/team-footer.jpg" width="1112" height="428" alt="our team">
         </div>
-        <div class="team__bg-bananas  team__bg-bananas--big"><img src="assets/img/about-bananas-big.png" width="142"
-                                                                  height="112" alt="bananas bg"></div>
-        <div class="team__bg-bananas  team__bg-bananas--middle"><img src="assets/img/about-bananas-middle.png"
-                                                                     width="104" height="86" alt="bananas bg"></div>
     </div>
     <a href="#" class="to-top">
-        <span class="icon-arrow">
+            <span class="icon-arrow">
             <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
                      xlink:href="assets/img/symbol.svg#icon-arrow-full"></use>
@@ -394,9 +476,7 @@
 <footer class="footer">
     <div class="footer__inner">
         <a class="footer__logo" href="#">
-            <picture>
-                <img src="assets/img/logo.png" srcset="assets/img/logo@2x.png" width="165" height="50" alt="Baby Joy">
-            </picture>
+            <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
         </a>
         <div class="footer__center">
             <nav class="footer__menu">
@@ -408,63 +488,68 @@
                     <li><a href="">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="footer__copy"><p>Copyright ©. Все права защищены</p></div>
+            <div class="footer__copy">
+                <p>Copyright ©. Все права защищены</p>
+            </div>
         </div>
         <ul class="footer__soc-block">
-            <li class="footer__soc"><a href="#" class="footer__link  footer__link--fb">
-                <span class="icon">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--fb">
+                        <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-fb"></use>
                     </svg>
-                </span>
-                facebook
-            </a>
+                </span> facebook
+                </a>
             </li>
-            <li class="footer__soc"><a href="#" class="footer__link  footer__link--tw">
-                <span class="icon">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--tw">
+                        <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="assets/img/symbol.svg#icon-tw"></use>
+                             xlink:href="assets/img/symbol.svg#icon-tw"></use>
                     </svg>
-                </span>
-                twitter
-            </a>
+                </span> twitter
+                </a>
             </li>
-            <li class="footer__soc"><a href="#" class="footer__link  footer__link--vk">
-                <span class="icon">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--vk">
+                        <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="assets/img/symbol.svg#icon-vk"></use>
+                             xlink:href="assets/img/symbol.svg#icon-vk"></use>
                     </svg>
-                </span>
-                vk
-            </a>
+                </span> vk
+                </a>
             </li>
-            <li class="footer__soc"><a href="#" class="footer__link  footer__link--google-plus">
-                <span class="icon">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--google-plus">
+                        <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
+                             xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
                     </svg>
-                </span>
-                google-plus
-            </a>
+                </span> google-plus
+                </a>
             </li>
-            <li class="footer__soc"><a href="#" class="footer__link  footer__link--youtube">
-                <span class="icon">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--youtube">
+                        <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
+                             xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
                     </svg>
-                </span>
-                youtube
-            </a>
+                </span> youtube
+                </a>
             </li>
         </ul>
     </div>
 </footer>
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/plugins/slick.min.js"></script>
+<script src="assets/js/plugins/svg4body.min.js"></script>
 <script src="assets/js/custom.js"></script>
 </body>
+
 </html>

@@ -46,9 +46,6 @@ img {
   font-weight: 700;
   cursor: pointer;
   transition: all .35s;
-  &:hover {
-    color: #008aff;
-  }
   &--border-green {
     background-image: none;
     background-color: transparent;
@@ -90,6 +87,33 @@ img {
         animation: joltingCart .8s ease-out;
       }
     }
+    .icon-cart {
+      z-index: 3;
+    }
+  }
+  &--bg-green {
+    -webkit-backface-visibility: hidden;
+    z-index: 1;
+    .btn__gradient-trs {
+      position: relative;
+      z-index: 3;
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 24px;
+      background-image: linear-gradient(to right, #5385ee 0%, #6bbafd 100%);
+      transition: opacity 0.5s ease-out;
+      z-index: 2;
+      opacity: 0;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
   }
 }
 
@@ -111,12 +135,11 @@ img {
 
 .title-gradient {
   position: relative;
+  display: block;
   padding-bottom: 12px;
   font-family: 'Houschka Rounded Bold';
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #0038af;
   font-size: 32px;
-  background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
   &::before {
     content: '';
     position: absolute;
@@ -139,11 +162,19 @@ img {
     }
   }
 }
-
+@supports (-webkit-background-clip: text) {
+.title-gradient {
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(20deg, #0038af 0%, #008aff 100%);
+}
+}
 .icon-cart {
+  position: relative;
   display: inline-block;
   width: 22px;
   height: 21px;
+  z-index: 3;
   svg {
     display: inline-block;
     fill: #ffffff;
@@ -154,8 +185,7 @@ img {
   position: absolute;
   width: 116px;
   height: 116px;
-  top: 50%;
-  margin-top: -58px;
+  top: 30%;
   background-color: #e8f4fd;
   border: none;
   font-size: 0;
@@ -245,6 +275,8 @@ img {
 .wrapper-home {
   position: relative;
   overflow: hidden;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .to-top {
@@ -256,6 +288,7 @@ img {
   border-radius: 25px;
   background-color: #ffd25e;
   transition: all .35s;
+  z-index: 10;
   .icon-arrow {
     position: absolute;
     left: 50%;
@@ -281,5 +314,35 @@ img {
   100% {
     transform: translateY(0) rotate(-90deg);
 
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 14px;
+  }
+  .slider-arrow {
+    width: 56px;
+    height: 56px;
+    &--next {
+      right: -28px;
+      &::before {
+        margin-left: -15px;
+      }
+    }
+    &--prev {
+      left: -28px;
+      &::before {
+        margin-left: 5px;
+      }
+    }
+    &::before {
+      width: 10px;
+      height: 16px;
+      margin-top: -8px;
+    }
+  }
+  .to-top {
+    right: 15px;
   }
 }

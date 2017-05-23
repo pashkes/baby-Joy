@@ -3,7 +3,7 @@
   text-align: center;
   padding-top: 70px;
   padding-bottom: 117px;
-  background: linear-gradient(to bottom, rgba(247, 252, 255, 1) 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%);
+  background-image: linear-gradient(to bottom, rgba(247, 252, 255, 1) 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%);
   overflow: hidden;
 }
 
@@ -80,5 +80,48 @@
   &--tiny {
     bottom: 10%;
     left: 8%;
+  }
+}
+@media (max-width: 1024px) {
+  .about {
+    padding-top: 30px;
+    padding-bottom: 70px;
+    background-image: linear-gradient(to bottom, #f7fcff 0%, rgba(247, 252, 255, 0.7) 92%, rgba(247, 252, 255, 0) 93%)
+  }
+    .about__img {
+      img {
+        max-width: 200px;
+
+      }
+    }
+  .about__years-market {
+    font-size: 110px;
+  }
+}
+@media (max-width: 768px) {
+  .about__features {
+    flex-direction: column;
+  }
+  .about__item {
+    max-width: 340px;
+    margin: 0 auto;
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+  .about__title {
+    span {
+      font-size: 27px;
+    }
+  }
+  .about__item  {
+    h3 {
+      font-size: 23px;
+    }
+  }
+  .about__text  {
+    p {
+      font-size: 16px;
+    }
   }
 }

@@ -2,6 +2,12 @@
   position: relative;
   padding-top: 80px;
   text-align: center;
+  z-index: 10;
+  background-image: url(./../img/about-bananas-big.png),
+  url(./../img/about-bananas-middle.png);
+  background-size: 142px 112px, 104px 86px;
+  background-repeat: no-repeat;
+  background-position: -.5% 50% , 97% 30%;
 }
 
 .team__inner {
@@ -22,15 +28,13 @@
     line-height: 1.76;
   }
 }
-
-.team__bg-bananas {
-  position: absolute;
-  &--big {
-    top: 50%;
-    left: .5%;
-  }
-  &--middle {
-    right: 3%;
-    top: 30%;
+@media (max-width: 1400px) {
+    .team {
+      background: none;
+    }
+}
+@media (max-width: 768px) {
+  .team {
+    padding-top: 40px;
   }
 }

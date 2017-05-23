@@ -7,6 +7,7 @@
 @import "wordpress";
 @import "variables";
 @import "main";
+@import "blocks/burger";
 @import "blocks/header";
 @import "blocks/kids-filter";
 @import "blocks/menu";
@@ -17,3 +18,4 @@
 @import "blocks/about";
 @import "blocks/team";
 @import "blocks/footer";
+@import "plugins/slick";
