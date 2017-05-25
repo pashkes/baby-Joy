@@ -11,7 +11,7 @@ $(function () {
 
   $('.single-product__quantity').on('click', function(event){
     var $target = $(event.target);
-    var start=Number($(this).find('.single-product__field').val());
+    var start=Number($(this).find('.output').val());
     if($target.hasClass('single-product__switch--down') && start >= 1) {
       start--;
       $(this).find('.single-product__field').val(start);
