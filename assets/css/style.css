@@ -3815,7 +3815,8 @@ li.fancybox-thumbs-loading {
   color: #637aa8;
   font-size: 17px;
   font-weight: 300;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 1; }
 
 .filter__input + .filter__label::before {
   content: '';
