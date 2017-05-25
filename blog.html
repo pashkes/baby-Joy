@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link id="favicon" rel="shortcut icon" href="assets/img/favicon2x.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon_ios144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon_ios114.png">
+    <title>Baby Joy</title>
+</head>
+<body>
+<header class="header ">
+    <div class="header__top-panel">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="#">
+                    <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
+                </a>
+            </div>
+            <div class="header__top-wrapper">
+                <div class="header__top">
+                    <form action="get" class="header__info">
+                        <label class="header__loc" for="you-city">Ваш город: </label>
+                        <div class="header__sel-wrapper">
+                            <select class="header__loc-select" id="you-city">
+                                <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
+                            </select>
+                        </div>
+                        <span class="header__time-delivery">Доставка товара 3 дня</span>
+                    </form>
+                    <div class="header__contacts">
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                    </div>
+                    <a href="#" class="header__lang">
+                        <img src="assets/img/icon/flag.svg" width="20" height="20" alt="ru">
+                    </a>
+                    <button class="header__cart  js-btn-cart">
+                            <span class="icon-cart">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                        </svg>
+                    </span>
+                        <span class="header__quantity">2</span>
+                    </button>
+                    <button class="burger js-burger burger__htx js-burger" type="button"><span>toggle menu</span>
+                    </button>
+                </div>
+                <div class="header__bottom">
+                    <div class="kids-filter">
+                        <a href="#" class="kids-filter__age kids-filter__age--newborn">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                        </svg>
+                    </span> Новорожденный
+                        </a>
+                        <a href="#" class="kids-filter__age  kids-filter__age--year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                        </svg>
+                    </span> 3-12 месяцев
+                        </a>
+                        <a href="#" class="kids-filter__age  kids-filter__age--two-year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                        </svg>
+                    </span> до 2х лет
+                        </a>
+                    </div>
+                    <nav class="menu js-menu">
+                        <ul class="menu__list">
+                            <li><a href="#">Cкидки</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Партнеры</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
+
+                        <div class="kids-filter">
+                            <a href="#" class="kids-filter__age kids-filter__age--newborn">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-1"></use>
+                        </svg>
+                    </span> Новорожденный
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-2"></use>
+                        </svg>
+                    </span> 3-12 месяцев
+                            </a>
+                            <a href="#" class="kids-filter__age  kids-filter__age--two-year">
+                                <span class="kids-filter__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-age-3"></use>
+                        </svg>
+                    </span> до 2х лет
+                            </a>
+                        </div>
+                        <form action="get" class="header__info">
+                            <label class="header__loc" for="you-city">Ваш город: </label>
+                            <div class="header__sel-wrapper">
+                                <select class="header__loc-select" id="you-city">
+                                    <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
+                                </select>
+                            </div>
+                            <span class="header__time-delivery">Доставка товара 3 дня</span>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="main-content">
+    <div class="main-content__inner">
+        <div class="breadcrumb">
+            <span><a href="#">Home</a></span>
+            <span><a href="#">Блог</a></span>
+        </div>
+        <h2><span class="title-gradient title-gradient--left">Подгузники</span></h2>
+        <div class="blog">
+            <div class="blog__column">
+                <div class="blog__list">
+                    <div class="blog__section">
+                        <span class="blog__title">Категории</span>
+                        <div class="blog__categories">
+                            <h4 class="blog__cat-title"><a href="#">Бизнес</a></h4>
+                            <span class="blog__quality">10</span>
+                        </div>
+                        <div class="blog__categories">
+                            <h4 class="blog__cat-title"><a href="#">Детский мир</a></h4>
+                            <span class="blog__quality">5</span>
+                        </div>
+                        <div class="blog__categories">
+                            <h4 class="blog__cat-title"><a href="#">Родителям</a></h4>
+                            <span class="blog__quality">8</span>
+                        </div>
+                        <div class="blog__categories">
+                            <h4 class="blog__cat-title"><a href="#">Нужно знать</a></h4>
+                            <span class="blog__quality">14</span>
+                        </div>
+                        <div class="blog__categories">
+                            <h4 class="blog__cat-title"><a href="#">Публикации</a></h4>
+                            <span class="blog__quality">22</span>
+                        </div>
+                    </div>
+                    <div class="blog__banners">
+
+                    </div>
+                    <div class="blog__section blog__section--banner"><a href="#"><img src="assets/img/banner-img-1.jpg"
+                                                                                      width="364"
+                                                                                      height="159" alt="banner-1"></a>
+                    </div>
+                    <div class="blog__section blog__section--banner"><a href="#"><img src="assets/img/banner-img-2.jpg"
+                                                                                      width="364"
+                                                                                      height="159" alt="banner-2"></a>
+                    </div>
+                </div>
+                <div class="blog__articles-wrap">
+                    <div class="blog__articles">
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-img-1.jpg" width="362" height="365"
+                                                               alt="Главный секрет маркетинга детских товаров"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">Главный секрет маркетинга детских товаров</a></h3>
+                                <div class="blog__text">
+                                    <p>Рынок детских товаров оценивается экспертами как феноменально привлекательный как
+                                        с
+                                        точки зрения прибыльности при невысоком пороге вхождения в бизнес, так и с
+                                        позиций...</p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        28 Апреля 2017
+                                    </span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-img-2.jpg" width="364" height="332"
+                                                               alt="Основа прибыльности магазина игрушек"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">Основа прибыльности магазина игрушек</a></h3>
+                                <div class="blog__text">
+                                    <p>Магазин игрушек — со стороны кажется, что это обычный розничный магазин, который
+                                        подчиняется законам рынка и существует по канонам экономической теории. На
+                                        практике
+                                        же есть ряд...</p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        28 Апреля 2017</span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-img-3.jpg" width="364" height="245"
+                                                               alt="Роль эмоций в маркетинге детских продуктов"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">Роль эмоций в маркетинге детских продуктов</a></h3>
+                                <div class="blog__text">
+                                    <p>Маркетологи знают, как важно сегментировать потребительские группы в зависимости
+                                        от
+                                        их потребностей. При продвижении детских товаров существуют свои правила. Понять
+                                        логику процесса... </p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        25 Апреля 2017</span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-img-4.jpg" width="364" height="280"
+                                                               alt="Концепция открытия детского магазина"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">Концепция открытия детского магазина</a></h3>
+                                <div class="blog__text">
+                                    <p>Маркетологи знают, как важно сегментировать потребительские группы в зависимости
+                                        от
+                                        их потребностей. При продвижении детских товаров существуют свои правила. Понять
+                                        логику процесса... </p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        28 Апреля 2017</span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-img-5.jpg" width="360" height="219"
+                                                               alt="Детская одежда в интернет-магазине: мотивация покупки"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">Детская одежда в интернет-магазине: мотивация покупки</a></h3>
+                                <div class="blog__text">
+                                    <p>Покупать детскую одежду через интернет-магазины в наши дни — обыденное дело. Ведь
+                                        не
+                                        секрет, что покупка одежды для детей обычно не сопряжена с долгими и
+                                        нервными...</p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        28 Апреля 2017</span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="blog__item">
+                            <a href="#" class="blog__img"><img src="assets/img/blog-image-6.jpg" width="364"
+                                                               height="219"
+                                                               alt="10 интересных фактов об игрушках"></a>
+                            <div class="blog__bottom">
+                                <h3><a href="#">10 интересных фактов об игрушках</a></h3>
+                                <div class="blog__text">
+                                    <p>«История игрушек» — первый полнометражный мультфильм, полностью сделанный на
+                                        компьютере.
+                                        Самый дорогой ёлочный шар стоит более 200 тысяч долларов. Его сделали в Британии
+                                        в
+                                        2009 году из белого золота...</p>
+                                </div>
+                                <div class="blog__info">
+                                    <span class="blog__time">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-clock"></use>
+                                            </svg>
+                                        </span>
+                                        28 Апреля 2017</span>
+                                    <span class="blog__name-author">
+                                        <span class="icon">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                     xlink:href="assets/img/symbol.svg#icon-pen"></use>
+                                            </svg>
+                                        </span>
+                                        Человек-муравей</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <ul class="pagination">
+                        <li class="pagination__page  pagination__page--prev"><a href="#">prev page</a></li>
+
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><a href="#">3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog__desc">
+                <p>BabyJoy products have many features customized for each stage of your baby's development! The
+                    features change in accordance with the various stages of growth and development. They take into
+                    account not only changes in baby's size, but also changes in baby's activities and the quantity and
+                    consistency of baby's discharge. Choose the BabyJoy size that best fits your baby's current stage of
+                    development.</p>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="partners">
+    <h2 class="partners__title"><span class="title-gradient title-gradient--center">Хотите стать нашим партнером?</span>
+    </h2>
+    <a href="#" class="partners__btn btn  btn--bg-blue">
+        <span class="btn__gradient-trs">Напишите нам</span>
+    </a>
+    <div class="partners__inner">
+        <div class="partners__item"><img src="assets/img/partner-icon-1.svg" width="165" height="45" alt="unicharm">
+        </div>
+        <div class="partners__item"><img src="assets/img/partner-icon-2.svg" width="149" height="53" alt="disney">
+        </div>
+        <div class="partners__item"><img src="assets/img/partner-icon-3.png" width="122" height="67" alt="baby Joy">
+        </div>
+        <div class="partners__item"><img src="assets/img/partner-icon-4.png" width="207" height="67" alt="sofy">
+        </div>
+        <div class="partners__item"><img src="assets/img/partner-icon-5.png" width="137" height="76" alt="lifree">
+        </div>
+        <div class="partners__item"><img src="assets/img/partner-icon-6.svg" width="132" height="132"
+                                         alt="japan quality"></div>
+    </div>
+</div>
+</div>
+<footer class="footer">
+    <a href="#" class="to-top">
+            <span class="icon-arrow">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="assets/img/symbol.svg#icon-arrow-full"></use>
+            </svg>
+        </span>
+    </a>
+    <div class="footer__inner">
+        <a class="footer__logo" href="#">
+            <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
+        </a>
+        <div class="footer__center">
+            <nav class="footer__menu">
+                <ul class="footer__list">
+                    <li><a href="">Cкидки</a></li>
+                    <li><a href="">Акции</a></li>
+                    <li><a href="">Партнеры</a></li>
+                    <li><a href="">Отзывы</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="footer__copy">
+                <p>Copyright ©. Все права защищены</p>
+            </div>
+        </div>
+        <ul class="footer__soc-block">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--fb">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-fb"></use>
+                    </svg>
+                </span> facebook
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--tw">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-tw"></use>
+                    </svg>
+                </span> twitter
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--vk">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-vk"></use>
+                    </svg>
+                </span> vk
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--google-plus">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
+                    </svg>
+                </span> google-plus
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--youtube">
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
+                    </svg>
+                </span> youtube
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<div class="overlay js-ordering">
+    <form action="get" class="form">
+        <button class="form__close" type="button">close form</button>
+        <div class="form__inner">
+            <span class="form__title">Оформление заказа</span>
+            <div class="form__field-wrap  form__field-wrap--name">
+                <input type="text" class="form__field" id="name-client" placeholder="Как Вас зовут?"><label
+                    for="name-client">Как Вас зовут?</label>
+            </div>
+            <div class="form__field-wrap  form__field-wrap--tel">
+                <input type="tel" class="form__field" id="tel-client" placeholder="Телефон"><label for="tel-client">Телефон</label>
+            </div>
+            <div class="form__field-wrap  form__field-wrap--mail">
+                <input type="email" class="form__field" id="mail-client" placeholder="supermama@example.com"><label
+                    for="mail-client">Телефон</label>
+            </div>
+            <div class="form__field-wrap  form__field-wrap--message">
+                <textarea id="client-message" class="form__field"
+                          placeholder="Комментарии к заказу, отделение почты или другая информация..."></textarea>
+                <label for="client-message"></label>
+            </div>
+            <button class="form__to-order  btn  btn--bg-green" type="submit"><span
+                    class="btn__gradient-trs">Заказать</span></button>
+        </div>
+    </form>
+</div>
+<div class="overlay  js-popup-cart">
+    <div class="form  form--cart">
+        <button class="form__close" type="button">close form</button>
+        <div class="form__inner">
+            <span class="form__title">Корзина</span>
+            <div class="form__type">
+                <h4>BabyJoy Ultra Comfort для мальчиков</h4>
+                <div class="form__count">
+                    <div class="form__img"><img src="assets/img/mini-prod.jpg" width="54" height="71"
+                                                alt="BabyJoy Ultra Comfort для мальчиков"></div>
+                    <div class="single-product__quantity">
+                        <button class="single-product__switch  single-product__switch--down" type="button">
+                            уменьшить
+                        </button>
+                        <label for="cont-1">Количество</label>
+                        <input type="text" class="single-product__field" id="cont-1" value="1">
+                        <button class="single-product__switch  single-product__switch--up" type="button">
+                            добавить
+                        </button>
+                    </div>
+                    <span class="form__price">5 600 т</span>
+                    <button class="form__remove-order" type="button">remove order</button>
+                </div>
+            </div>
+            <div class="form__type">
+                <h4>BabyJoy Ultra Comfort для мальчиков</h4>
+                <div class="form__count">
+                    <div class="form__img"><img src="assets/img/mini-product.jpg" width="56" height="77"
+                                                alt="BabyJoy mini для cамых маленьких"></div>
+                    <div class="single-product__quantity">
+                        <button class="single-product__switch  single-product__switch--down" type="button">уменьшить
+                        </button>
+                        <label for="cont-2">Количество</label>
+                        <input type="text" class="single-product__field" id="cont-2" value="1">
+                        <button class="single-product__switch  single-product__switch--up" type="button">добавить
+                        </button>
+                    </div>
+                    <span class="form__price">5 600 т</span>
+                    <button class="form__remove-order" type="button">remove order</button>
+                </div>
+            </div>
+            <div class="form__total">
+                <span class="form__total-title">Всего к оплате:</span><span class="form__total-price">12 700 т</span>
+            </div>
+            <button class="form__cart-btn  btn  btn--bg-green js-btn-ordering" type="button"><span
+                    class="btn__gradient-trs">Оформить заказ</span></button>
+        </div>
+    </div>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/plugins/slick.min.js"></script>
+<script src="assets/js/plugins/svg4body.min.js"></script>
+<script src="assets/js/plugins/jquery.fancybox.min.js"></script>
+<script src="assets/js/plugins/jquery.sumoselect.min.js"></script>
+<script src="assets/js/plugins/updown.min.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+
+</html>
