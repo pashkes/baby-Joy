@@ -53,6 +53,9 @@
       filter: blur(3px);
     }
   }
+  .header__top-panel {
+    background-color: #f7fcff;
+  }
 }
 
 .header__logo {
@@ -69,8 +72,7 @@
   right: 0;
   left: 0;
   z-index: 30;
-  background-color: #f7fcff;
-
+  background-color:#fff;
   &::before {
     content: '';
     position: absolute;
@@ -154,7 +156,7 @@
     color: rgba(99, 122, 168, .8);
     font-size: 13px;
     &:first-child {
-      color: #58af09;
+      color: #008aff;
       &:hover {
         .icon {
           svg {
@@ -165,6 +167,9 @@
     }
     &:last-child {
       margin-right: 0;
+    }
+    &:hover {
+      color: #008aff;
     }
   }
 
@@ -186,7 +191,14 @@
     }
   }
 }
-
+.home {
+  .menu__list li:nth-child(2) a::before {
+    background-color: #68c91a;
+  }
+  .header__contacts a:first-child {
+    color: #58af09;
+  }
+}
 .header__lang {
   flex: none;
   margin-right: 32px;

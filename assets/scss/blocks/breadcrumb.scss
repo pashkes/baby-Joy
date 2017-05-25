@@ -20,6 +20,7 @@
       text-decoration: underline;
       &:hover {
         color: $green;
+        text-decoration: none;
       }
     }
     &:first-child {

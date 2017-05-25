@@ -8,6 +8,8 @@
 @import "variables";
 @import "main";
 @import "plugins/slick";
+@import "plugins/jquery.fancybox.min";
+@import "plugins/sumoselect";
 @import "blocks/burger";
 @import "blocks/header";
 @import "blocks/kids-filter";
@@ -20,7 +22,9 @@
 @import "blocks/team";
 @import "blocks/footer";
 @import "blocks/categories";
+@import "blocks/single-product";
 @import "blocks/breadcrumb";
 @import "blocks/tag";
 @import "blocks/filter";
 @import "blocks/pagination";
+@import "blocks/sort";

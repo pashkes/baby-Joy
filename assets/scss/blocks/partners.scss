@@ -1,12 +1,28 @@
 .partners {
   position:relative;
+  padding-top: 67px;
+  padding-bottom: 96px;
+  background-color:#fff;
+  text-align: center;
+  z-index: 10;
+  h2 {
+    margin-bottom: 32px;
+  }
+}
+.partners__inner {
   @include container;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 67px;
-  padding-bottom: 96px;
-  z-index: 10;
+}
+.partners__btn {
+  max-width: 220px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 .partners__item {
   margin-right: 20px;
@@ -18,10 +34,12 @@
 }
 @media (max-width: 768px) {
   .partners {
-    flex-wrap: wrap;
-    justify-content: space-around;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  .partners__inner {
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   .partners__item {
     width: 31%;

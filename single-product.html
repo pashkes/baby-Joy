@@ -134,9 +134,8 @@
         </div>
     </div>
 </header>
-
 <div class="categories">
-    <div class="categories__inner">
+    <div class="categories__inner  categories__inner--single">
         <div class="breadcrumb">
             <span><a href="#">Home</a></span>
             <span><a href="#">Подгузники</a></span>
@@ -267,243 +266,304 @@
                     </div>
                 </fieldset>
             </form>
-            <div class="categories__catalog">
-                <div class="categories__top">
-                    <ul class="tag">
-                        <li class="tag__item">
-                            Средний
-                            <button class="tag__remove" type="button">remove tag</button>
-                        </li>
-                        <li class="tag__item">
-                            Меленький
-                            <button class="tag__remove" type="button">remove tag</button>
-                        </li>
-                    </ul>
-                    <div class="sort js-sort">
-                        <span class="sort__to">Упорядочить по </span><a href="#">Цене</a>
-                        <ul class="sort__drop">
-                            <li><a href="#">Популярности</a></li>
-                            <li><a href="#">Новинки</a></li>
-                        </ul>
+            <div class="single-product">
+                <div class="single-product__top">
+                    <div class="single-product__sliders">
+                        <div class="single-product__slider-main">
+                            <ul class="js-single-product-big">
+                                <li>
+                                    <a href="assets/img/box-mini.jpg" data-fancybox="gallery"><img
+                                            src="assets/img/box-mini.jpg" width="251" height="355" alt="box-mini"></a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/box-mini.jpg" data-fancybox="gallery"><img
+                                            src="assets/img/box-mini.jpg" width="251" height="355" alt="box-mini"></a>
+                                </li>
+                                <li>
+                                    <a href="assets/img/box-mini.jpg" data-fancybox="gallery"><img
+                                            src="assets/img/box-mini.jpg" width="251" height="355" alt="box-mini"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="single-product__slider-nav">
+                            <ul class="js-product-single-nav">
+                                <li>
+                                    <div class="single-product__img-nav"><img src="assets/img/box-preview-1.jpg"
+                                                                              width="67" height="86" alt="prev-1"></div>
+                                </li>
+                                <li>
+                                    <div class="single-product__img-nav"><img src="assets/img/box-preview-2.jpg"
+                                                                              width="75" height="86" alt="prev-2"></div>
+                                </li>
+                                <li>
+                                    <div class="single-product__img-nav"><img src="assets/img/box-preview-3.jpg"
+                                                                              width="75" height="86" alt="prev-3"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-product__options">
+                        <div class="single-product__header">
+                            <h3 class="single-product__title">BabyJoy Ultra Comfort длямальчиков</h3><span
+                                class="single-product__availability">В наличии</span>
+                        </div>
+                        <p class="single-product__vendor">Артикул: 54577</p>
+                        <p class="single-product__price">5 600 т</p>
+                        <form>
+                            <div class="single-product__quantity">
+                                <button class="single-product__switch  single-product__switch--down" id="btnIncrease"
+                                        type="button">уменьшить
+                                </button>
+                                <label for="controlledByButtons">Количество</label>
+                                <input type="text" class="single-product__field" id="controlledByButtons" value="1">
+                                <button class="single-product__switch  single-product__switch--up" id="btnDecrease"
+                                        type="button">добавить
+                                </button>
+                            </div>
+                        </form>
+                        <div class="single-product__btns">
+                            <button class="single-product__quick-order btn btn-transparent" type="button">Быстрый
+                                заказ
+                            </button>
+                            <button class="single-product__pay btn btn--cart btn--bg-green" type="button">
+                                <span class="icon-cart">
+                                     <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                    </svg>
+                                </span>
+                                <span class="btn__gradient-trs">Купить</span>
+                            </button>
+                        </div>
+                        <div class="single-product__opt-size">
+                            <label for="size-options" class="single-product__label">Размер подгузников</label>
+                            <select id="size-options" class="single-product__size-options testselect1">
+                                <option value="newborn">Для новорожденных</option>
+                                <option value="small">Маленький</option>
+                                <option value="middle">Средний</option>
+                                <option value="big">Большой</option>
+                                <option value="adolescent">Подростковый</option>
+                            </select>
+                            <div class="single-product__box-size">
+                                <span class="single-product__box-title">Упаковка</span>
+                                <div class="single-product__size-links">
+                                    <a class="active" href="#">Mini</a>
+                                    <a href="#">Mega</a>
+                                    <a href="#">Jumbo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-product__desk">
+                            <p>BabyJoy Ultra Comfort – самые сухие подгузники для мальчиков. Как и другие подгузники
+                                BabyJoy они дарят сухость до 12 часов.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="product__list">
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="" class="product__img">
-                                <img src="assets/img/product-2.png" width="206" height="233"
-                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
-                            </a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54577</span>
-                                <span class="product__price">5 600 т</span>
-                            </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
+                <div class="single-product__tab">
+                    <div class="single-product__tabs">
+                        <h4 class="single-product__tab-title js-tab">Описание</h4>
+                        <h4 class="single-product__tab-title js-tab">Характеристики</h4>
+                        <h4 class="single-product__tab-title js-tab">Отзывы</h4>
+                        <h4 class="single-product__tab-title js-tab">Доставка и оплата</h4>
+                    </div>
+                    <div class="single-product__tab-content">
+                        <div class="single-product__tab-item js-tab-item">
+                            <div class="single-product__desc">
+                                <p>Ух ты, как сухо! А куда исчезли все пи-пи? Вы готовы к революции в мире подгузников? Как
+                                    только вы начнете использовать BabyJoy Ultra Comfort, вы убедитесь, что они отличаются
+                                    от наших предыдущих подгузников. Революционная технология помогает распределять влагу
+                                    равномерно по 3 впитывающим каналам и запирать ее на замок, не допуская образование
+                                    мокрого комка между ножек по утрам. Эти подгузники настолько удобные и сухие, что вы
+                                    удивитесь, куда делись все пи-пи!</p>
                             </div>
                         </div>
-                    </section>
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
-                                                                  height="233"
-                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
+                        <div class="single-product__tab-item js-tab-item">
+                            <table class="single-product__characteristics">
+                                <tr>
+                                    <td>Количество в упаковке</td>
+                                    <td>30 шт</td>
+                                </tr>
+                                <tr>
+                                    <td>Вес ребенка</td>
+                                    <td>30 шт</td>
+                                </tr>
+                                <tr>
+                                    <td>Пол ребенка</td>
+                                    <td>Мальчик</td>
+                                </tr>
+                                <tr>
+                                    <td>Пол ребенка</td>
+                                    <td>Подгузники</td>
+                                </tr>
+                                <tr>
+                                    <td>Крепеж</td>
+                                    <td>Липучка</td>
+                                </tr>
+                                <tr>
+                                    <td>Производитель</td>
+                                    <td>BabyJoy</td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54782</span>
-                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
+                        <div class="single-product__tab-item js-tab-item">
+                            <div class="single-product__review">
+                                <header class="single-product__post-top">
+                                    <div class="single-product__name">Ирина Спиридонова</div>
+                                    <ul class="single-product__star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <span class="single-product__time">9 апреля 2017</span>
+                                </header>
+                                <div class="single-product__text">
+                                    <p>Подгузники BabyJoy, пожалуй, самые известные
+                                    представители данной категории товаров. Лично я о них знала еще за долго до того,
+                                    как стала мамой. Сейчас моему ребенку уже больше года. Все это время я находилась в
+                                    своего рода поиске идеальных подгузников для дочери. И это именно эти
+                                    подгузники.</p>
+                                </div>
                             </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="" class="product__img">
-                                <img src="assets/img/product-2.png" width="206" height="233"
-                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
-                            </a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54577</span>
-                                <span class="product__price">5 600 т</span>
-                            </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
-                                                                  height="233"
-                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54782</span>
-                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
-                            </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
+                            <div class="single-product__review">
+                                <header class="single-product__post-top">
+                                    <div class="single-product__name">Ирина Спиридонова</div>
+                                    <ul class="single-product__star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li class="disabled">5</li>
+                                    </ul>
+                                    <span class="single-product__time">9 апреля 2017</span>
+                                </header>
+                                <div class="single-product__text">
+                                    <p>Это супер подгузники, которым нет замены. Мой малыш узнает их и радуется....всем
+                                        мамам рекомендую только их!</p>
+                                </div>
                             </div>
                         </div>
-                    </section>
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="" class="product__img">
-                                <img src="assets/img/product-2.png" width="206" height="233"
-                                     alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
-                            </a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54577</span>
-                                <span class="product__price">5 600 т</span>
-                            </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="product__item">
-                        <div class="product__top">
-                            <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268"
-                                                                  height="233"
-                                                                  alt="BabyJoy mini для cамых маленьких 56 штук"></a>
-                            <a href="#" class="product__icon">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-search"></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="product__bottom">
-                            <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
-                            <div class="product__info">
-                                <span class="product__vendor">Артикул: 54782</span>
-                                <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
-                            </div>
-                            <div class="product__btns">
-                                <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ
-                                </button>
-                                <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
-                                <span class="icon-cart">
-                                <svg>
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
-                                </svg>
-                            </span>
-                                    <span class="btn__gradient-trs">Купить</span>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                    <div class="single-product__tab-item js-tab-item">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem error esse fuga illum natus
+                            nostrum placeat quo sequi voluptatem! Ab consequatur, dicta ducimus iste mollitia nam
+                            praesentium quod veniam?</p>
+                    </div>
+
+
                 </div>
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><span>...</span></li>
-                    <li><a href="#">next page</a></li>
-                </ul>
             </div>
         </div>
     </div>
+    <article class="product">
+        <div class="product__header">
+            <h2 class="product__title"><span
+                    class="title-gradient  title-gradient--center">Товары, которые могут вам понравится</span></h2>
+        </div>
+        <div class="product__list">
+            <section class="product__item">
+                <div class="product__top">
+                    <a href="#" class="product__img">
+                        <img src="assets/img/product-1.png" width="274" height="233"
+                             alt="BabyJoy Compressed Comfort для мальчиков 56 штук">
+                    </a>
+                    <a href="#" class="product__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-search"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="product__bottom">
+                    <h3><a href="#">BabyJoy Compressed Comfort для мальчиков 56 штук</a></h3>
+                    <div class="product__info">
+                        <span class="product__vendor">Артикул: 56598</span>
+                        <span class="product__price">6 200 т</span>
+                    </div>
+                    <div class="product__btns">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="product__item">
+                <div class="product__top">
+                    <a href="" class="product__img">
+                        <img src="assets/img/product-2.png" width="206" height="233"
+                             alt="BabyJoy Ultra Comfort для мальчиков 30 штук">
+                    </a>
+                    <a href="#" class="product__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-search"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="product__bottom">
+                    <h3><a href="#">BabyJoy Ultra Comfort для мальчиков 30 штук</a></h3>
+                    <div class="product__info">
+                        <span class="product__vendor">Артикул: 54577</span>
+                        <span class="product__price">5 600 т</span>
+                    </div>
+                    <div class="product__btns">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="product__item">
+                <div class="product__top">
+                    <a href="#" class="product__img"><img src="assets/img/product-3.png" width="268" height="233"
+                                                          alt="BabyJoy mini для cамых маленьких 56 штук"></a>
+                    <a href="#" class="product__icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="assets/img/symbol.svg#icon-search"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="product__bottom">
+                    <h3><a href="#">BabyJoy mini для cамых маленьких 56 штук</a></h3>
+                    <div class="product__info">
+                        <span class="product__vendor">Артикул: 54782</span>
+                        <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
+                    </div>
+                    <div class="product__btns">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
+                                <span class="icon-cart">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-cart"></use>
+                                </svg>
+                            </span>
+                            <span class="btn__gradient-trs">Купить</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
     <div class="partners">
-        <h2 class="partners__title"><span class="title-gradient title-gradient--center">Хотите стать нашим партнером?</span>
+        <h2 class="partners__title"><span
+                class="title-gradient title-gradient--center">Хотите стать нашим партнером?</span>
         </h2>
         <a href="#" class="partners__btn btn  btn--bg-blue">
             <span class="btn__gradient-trs">Напишите нам</span>
@@ -524,87 +584,88 @@
         </div>
     </div>
 </div>
-    <footer class="footer">
-        <a href="#" class="to-top">
+
+<footer class="footer">
+    <a href="#" class="to-top">
             <span class="icon-arrow">
             <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
                      xlink:href="assets/img/symbol.svg#icon-arrow-full"></use>
             </svg>
         </span>
+    </a>
+    <div class="footer__inner">
+        <a class="footer__logo" href="#">
+            <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
         </a>
-        <div class="footer__inner">
-            <a class="footer__logo" href="#">
-                <img src="assets/img/logo.png" width="165" height="50" alt="Baby Joy">
-            </a>
-            <div class="footer__center">
-                <nav class="footer__menu">
-                    <ul class="footer__list">
-                        <li><a href="">Cкидки</a></li>
-                        <li><a href="">Акции</a></li>
-                        <li><a href="">Партнеры</a></li>
-                        <li><a href="">Отзывы</a></li>
-                        <li><a href="">Контакты</a></li>
-                    </ul>
-                </nav>
-                <div class="footer__copy">
-                    <p>Copyright ©. Все права защищены</p>
-                </div>
+        <div class="footer__center">
+            <nav class="footer__menu">
+                <ul class="footer__list">
+                    <li><a href="">Cкидки</a></li>
+                    <li><a href="">Акции</a></li>
+                    <li><a href="">Партнеры</a></li>
+                    <li><a href="">Отзывы</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="footer__copy">
+                <p>Copyright ©. Все права защищены</p>
             </div>
-            <ul class="footer__soc-block">
-                <li class="footer__soc">
-                    <a href="#" class="footer__link  footer__link--fb">
+        </div>
+        <ul class="footer__soc-block">
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--fb">
                         <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-fb"></use>
                     </svg>
                 </span> facebook
-                    </a>
-                </li>
-                <li class="footer__soc">
-                    <a href="#" class="footer__link  footer__link--tw">
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--tw">
                         <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-tw"></use>
                     </svg>
                 </span> twitter
-                    </a>
-                </li>
-                <li class="footer__soc">
-                    <a href="#" class="footer__link  footer__link--vk">
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--vk">
                         <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-vk"></use>
                     </svg>
                 </span> vk
-                    </a>
-                </li>
-                <li class="footer__soc">
-                    <a href="#" class="footer__link  footer__link--google-plus">
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--google-plus">
                         <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
                     </svg>
                 </span> google-plus
-                    </a>
-                </li>
-                <li class="footer__soc">
-                    <a href="#" class="footer__link  footer__link--youtube">
+                </a>
+            </li>
+            <li class="footer__soc">
+                <a href="#" class="footer__link  footer__link--youtube">
                         <span class="icon">
                     <svg>
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
                     </svg>
                 </span> youtube
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/plugins/slick.min.js"></script>
 <script src="assets/js/plugins/svg4body.min.js"></script>
