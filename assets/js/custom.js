@@ -11,13 +11,13 @@ $(function () {
 
   $('.single-product__quantity').on('click', function(event){
     var $target = $(event.target);
-
+    var start=Number($(this).find('.single-product__field').val());
     if($target.hasClass('single-product__switch--down') && start >= 1) {
       start--;
-      $(this).children('.single-product__field').val(start);
+      $(this).find('.single-product__field').val(start);
     } else if ($target.hasClass('single-product__switch--up')) {
       start++;
-      $(this).children('.single-product__field').val(start);
+      $(this).find('.single-product__field').val(start);
     }
   });
 
