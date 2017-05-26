@@ -249,6 +249,12 @@ $(function () {
       $('.ad-diapers__slide').css({
         top: 2 - $(window).scrollTop() * .35
       });
+      $('.header__nipple').css({
+        top: 2 - $(window).scrollTop() * .4
+      });
+      $('.header__heart').css({
+        top: 2 - $(window).scrollTop() * .4
+      });
     }
   });
   //end
