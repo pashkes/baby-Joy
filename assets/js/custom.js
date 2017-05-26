@@ -29,11 +29,14 @@ $(function () {
   var btnOrder = $('.js-btn-ordering'),
       btnOrderFast = $('.js-btn-order-fast'),
       btnCart = $('.js-btn-cart'),
+      btnSkip = $('.js-skip'),
+      btnLoc = $('.js-loc'),
       overlay = $('.overlay'),
       overlayOrder = $('.js-ordering'),
       overlayShow = 'overlay--show',
       overlayFast = $('.js-fast-order'),
       overlayCart = $('.js-popup-cart'),
+      overlayLocation = $('.js-location'),
       closeOverlay = $('.form__close'),
       form = $('.form');
 
@@ -45,8 +48,18 @@ $(function () {
     overlayFast.addClass(overlayShow);
   });
   btnCart.on('click', function () {
+    event.preventDefault();
     overlayCart.addClass(overlayShow);
   });
+  btnLoc.on('mousedown', function(e) {
+    e.preventDefault();
+    this.blur();
+    window.focus();
+  });
+  btnLoc.on('click', function () {
+    overlayLocation.addClass(overlayShow);
+  });
+
   closeOverlay.on('click', function () {
     $(this).parents(overlay).removeClass(overlayShow);
   });

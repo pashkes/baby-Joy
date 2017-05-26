@@ -22,7 +22,7 @@
             <div class="header__top-wrapper">
                 <div class="header__top">
                     <form action="get" class="header__info">
-                        <label class="header__loc" for="you-city">Ваш город: </label>
+                        <label class="header__loc js-loc" for="you-city">Ваш город: </label>
                         <div class="header__sel-wrapper">
                             <select class="header__loc-select" id="you-city">
                                 <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
@@ -115,7 +115,7 @@
                         <form action="get" class="header__info">
                             <label class="header__loc" for="you-city">Ваш город: </label>
                             <div class="header__sel-wrapper">
-                                <select class="header__loc-select" id="you-city">
+                                <select class="header__loc-select js-loc" id="you-city">
                                     <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
                                 </select>
                             </div>
@@ -559,6 +559,23 @@
             <button class="form__cart-btn  btn  btn--bg-green js-btn-ordering" type="button"><span
                     class="btn__gradient-trs">Оформить заказ</span></button>
         </div>
+    </div>
+</div>
+<div class="overlay  js-location">
+    <div class="header__location  header__location--show js-location">
+                                    <span class="loc__title"><span
+                                            class="title-gradient">Где Вы находитесь?</span></span>
+        <div class="header__map">
+            <a href="#" class="header__city  header__city--capital">Астана</a>
+            <a href="#" class="header__city  header__city--second">Караганда</a>
+            <a href="#" class="header__city  header__city--third">Шымкент</a>
+            <a href="#" class="header__city  header__city--fourth">Алматы</a>
+            <picture>
+                <img src="assets/img/map.png" srcset="assets/img/map@2x.png 2x" width="312"
+                     height="174" alt="you-location">
+            </picture>
+        </div>
+        <button class="header__skip js-skip" type="button">Пропустить</button>
     </div>
 </div>
 <script src="assets/js/jquery.min.js"></script>
