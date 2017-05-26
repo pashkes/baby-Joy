@@ -2596,7 +2596,6 @@ li.fancybox-thumbs-loading {
 
 @media (max-width: 1170px) {
   .ad-diapers__aircraft {
-    bottom: 0;
     left: 20px; }
   .ad-diapers__cloud {
     max-width: 230px; }
@@ -2644,7 +2643,9 @@ li.fancybox-thumbs-loading {
     margin-top: 0;
     margin-bottom: 60px;
     padding-bottom: 0;
-    padding-top: 0; } }
+    padding-top: 0; }
+  .ad-diapers__aircraft {
+    display: none; } }
 
 @media (max-width: 768px) {
   .ad-diapers__cloud {

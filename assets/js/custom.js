@@ -247,7 +247,7 @@ $(function () {
         opacity: 1 - $(window).scrollTop() * scrollCoef
       });
       $('.ad-diapers__slide').css({
-        top: 2 - $(window).scrollTop() * .3
+        top: 2 - $(window).scrollTop() * .35
       });
     }
   });
