@@ -2429,8 +2429,6 @@ li.fancybox-thumbs-loading {
 
 .ad-diapers {
   position: relative;
-  padding-right: 58px;
-  padding-left: 58px;
   background: linear-gradient(to bottom, #f7fcff 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%); }
 
 .ad-diapers__shares {
@@ -2591,6 +2589,11 @@ li.fancybox-thumbs-loading {
     opacity: 1;
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
+
+@media (max-width: 1300px) {
+  .ad-diapers {
+    padding-right: 58px;
+    padding-left: 58px; } }
 
 @media (max-width: 1170px) {
   .ad-diapers__aircraft {
