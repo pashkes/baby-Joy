@@ -252,8 +252,16 @@ $(function () {
       $('.header__nipple').css({
         top: 2 - $(window).scrollTop() * .4
       });
+      // var posAir = $('.ad-diapers__aircraft').position().top;
+      // $('.ad-diapers__aircraft').css({
+      //   top: posAir - $(window).scrollTop() * .1
+      // });
       $('.header__heart').css({
         top: 2 - $(window).scrollTop() * .4
+      });
+
+      $('.ad-diapers__img').css({
+        top: 2 - $(window).scrollTop() * .6
       });
     }
   });

@@ -1764,8 +1764,7 @@ li.fancybox-thumbs-loading {
   right: 4%;
   top: 5%;
   -webkit-filter: blur(3px);
-          filter: blur(3px);
-  opacity: .6; }
+          filter: blur(3px); }
 
 .header__logo {
   margin-right: 10px; }
@@ -2564,7 +2563,7 @@ li.fancybox-thumbs-loading {
 
 .ad-diapers__aircraft {
   position: absolute;
-  bottom: 14%;
+  bottom: 13%;
   left: 78px;
   -webkit-animation: flight 2.5s ease-out;
           animation: flight 2.5s ease-out;
