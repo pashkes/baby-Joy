@@ -1769,7 +1769,8 @@ li.fancybox-thumbs-loading {
   opacity: 0.6;
   background: url(./../img/nipple.svg) 0 0 no-repeat;
   -webkit-filter: blur(3px);
-          filter: blur(3px); }
+          filter: blur(3px);
+  z-index: 30; }
 
 .home .header__top-panel {
   background-color: #f7fcff; }
@@ -2145,6 +2146,10 @@ li.fancybox-thumbs-loading {
 @media (max-width: 1500px) {
   .header::before, .header::after {
     z-index: 10; } }
+
+@media (max-width: 1380px) {
+  .home .header::after {
+    z-index: 1; } }
 
 @media (max-width: 1170px) {
   .header__logo {
