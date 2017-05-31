@@ -2358,22 +2358,22 @@ li.fancybox-thumbs-loading {
 @-webkit-keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(500px) scale(0.7);
-            transform: translateX(500px) scale(0.7); }
+    -webkit-transform: translate(500px, 100px) scale(0.7);
+            transform: translate(500px, 100px) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0) scale(1);
-            transform: translateX(0) scale(1); } }
+    -webkit-transform: translate(0) scale(1);
+            transform: translate(0) scale(1); } }
 
 @keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(500px) scale(0.7);
-            transform: translateX(500px) scale(0.7); }
+    -webkit-transform: translate(500px, 100px) scale(0.7);
+            transform: translate(500px, 100px) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0) scale(1);
-            transform: translateX(0) scale(1); } }
+    -webkit-transform: translate(0) scale(1);
+            transform: translate(0) scale(1); } }
 
 @-webkit-keyframes up-down {
   0% {
@@ -4302,6 +4302,73 @@ input:-ms-input-placeholder {
   line-height: 1;
   color: #58af09; }
 
+@media (max-width: 1170px){
+  .header__logo{
+    margin-right: 10px; }
+  .header__info{
+    margin-right: 10px;
+    font-size: 12px; }
+  .header__sel-wrapper{
+    position: relative;
+    margin-right: 10px; }
+  .header__contacts{
+    margin-right: 10px; }
+  .header__contacts a{
+    margin-right: 10px;
+    font-size: 11px; }
+  .header__lang{
+    margin-right: 10px; }
+  .header__loc-select{
+    font-size: 12px; }
+  header__nipple{
+    z-index: 9; }
+  .kids-filter{
+    margin-right: 10px; }
+  .kids-filter__age{
+    margin-right: 8px;
+    font-size: 11px;
+    padding: 0 9px; }
+  .menu__list li a{
+    font-size: 14px; }
+  .ad-diapers__aircraft{
+    left: 20px; }
+  .ad-diapers__cloud{
+    max-width: 230px; }
+  .ad-diapers__cloud p{
+    font-size: 11px; }
+  .product__bottom h3{
+    margin-bottom: 10px;
+    text-align: center; }
+  .product__info{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-grid-row-align: center;
+    align-items: center; }
+  .product__vendor{
+    margin-bottom: 10px; }
+  .product__btns{
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-grid-row-align: center;
+    align-items: center; }
+  .product__quick-order{
+    margin-right: 0;
+    margin-bottom: 20px; }
+  .blog__item--wide{
+    max-width: 267px;
+    -webkit-box-flex: 1;
+    flex: 1 1 240px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-grid-row-align: center;
+    align-items: center; } }
+
 @media (max-width: 768px){
   .btn{
     font-size: 14px; }
@@ -4600,19 +4667,6 @@ input:-ms-input-placeholder {
   .form__field-wrap--message .form__field{
     min-height: 100px; } }
 
-@media (max-width: 800px){
-  .fancybox-controls{
-    text-align: left; }
-  .fancybox-button--left, .fancybox-button--right, .fancybox-buttons button:not(.fancybox-button--close){
-    display: none !important; }
-  .fancybox-caption{
-    padding: 20px 0;
-    margin: 0; }
-  .fancybox-thumbs{
-    display: none !important; }
-  .fancybox-container--thumbs .fancybox-caption-wrap, .fancybox-container--thumbs .fancybox-controls, .fancybox-container--thumbs .fancybox-slider-wrap{
-    right: 0; } }
-
 @media (max-width: 1024px){
   .burger{
     display: block; }
@@ -4818,7 +4872,9 @@ input:-ms-input-placeholder {
 
 @media (max-width: 1500px){
   .header::before, .header::after{
-    z-index: 10; } }
+    z-index: 10; }
+  .ad-diapers__aircraft{
+    left: 68px; } }
 
 @media (max-width: 1380px){
   .home .header::after{
@@ -4826,72 +4882,18 @@ input:-ms-input-placeholder {
   .header__top-panel{
     z-index: 20; } }
 
-@media (max-width: 1170px){
-  .header__logo{
-    margin-right: 10px; }
-  .header__info{
-    margin-right: 10px;
-    font-size: 12px; }
-  .header__sel-wrapper{
-    position: relative;
-    margin-right: 10px; }
-  .header__contacts{
-    margin-right: 10px; }
-  .header__contacts a{
-    margin-right: 10px;
-    font-size: 11px; }
-  .header__lang{
-    margin-right: 10px; }
-  .header__loc-select{
-    font-size: 12px; }
-  header__nipple{
-    z-index: 9; }
-  .kids-filter{
-    margin-right: 10px; }
-  .kids-filter__age{
-    margin-right: 8px;
-    font-size: 11px;
-    padding: 0 9px; }
-  .menu__list li a{
-    font-size: 14px; }
-  .ad-diapers__aircraft{
-    left: 20px; }
-  .ad-diapers__cloud{
-    max-width: 230px; }
-  .ad-diapers__cloud p{
-    font-size: 11px; }
-  .product__bottom h3{
-    margin-bottom: 10px;
-    text-align: center; }
-  .product__info{
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-grid-row-align: center;
-    align-items: center; }
-  .product__vendor{
-    margin-bottom: 10px; }
-  .product__btns{
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-grid-row-align: center;
-    align-items: center; }
-  .product__quick-order{
-    margin-right: 0;
-    margin-bottom: 20px; }
-  .blog__item--wide{
-    max-width: 267px;
-    -webkit-box-flex: 1;
-    flex: 1 1 240px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-grid-row-align: center;
-    align-items: center; } }
+@media (max-width: 800px){
+  .fancybox-controls{
+    text-align: left; }
+  .fancybox-button--left, .fancybox-button--right, .fancybox-buttons button:not(.fancybox-button--close){
+    display: none !important; }
+  .fancybox-caption{
+    padding: 20px 0;
+    margin: 0; }
+  .fancybox-thumbs{
+    display: none !important; }
+  .fancybox-container--thumbs .fancybox-caption-wrap, .fancybox-container--thumbs .fancybox-controls, .fancybox-container--thumbs .fancybox-slider-wrap{
+    right: 0; } }
 
 @media (max-width: 425px){
   .header__location{
@@ -4987,6 +4989,10 @@ input:-ms-input-placeholder {
     margin-right: 0; }
   .form__total-title{
     margin-bottom: 10px; } }
+
+@media (max-width: 1980px){
+  .ad-diapers__aircraft{
+    left: 17%; } }
 
 @media (max-width: 1300px){
   .ad-diapers{
