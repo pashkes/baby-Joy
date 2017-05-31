@@ -2336,29 +2336,66 @@ li.fancybox-thumbs-loading {
   position: absolute;
   bottom: 13%;
   left: 78px;
-  -webkit-animation: flight 2.5s ease-out;
-          animation: flight 2.5s ease-out;
+  width: 350px;
+  height: 150px;
+  background-image: url(./../img/spritesheet-airplanet.png);
+  -webkit-animation: play 0.75s steps(8) infinite, up-down 2.8s ease-out infinite, flight 1.8s ease-out;
+          animation: play 0.75s steps(8) infinite, up-down 2.8s ease-out infinite, flight 1.8s ease-out;
   z-index: 2; }
+
+@-webkit-keyframes play {
+  from {
+    background-position: -2880px; }
+  to {
+    background-position: 0; } }
+
+@keyframes play {
+  from {
+    background-position: -2880px; }
+  to {
+    background-position: 0; } }
 
 @-webkit-keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(600px) scale(0.7);
-            transform: translateX(600px) scale(0.7); }
+    -webkit-transform: translateX(500px) scale(0.7);
+            transform: translateX(500px) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
+    -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1); } }
 
 @keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(600px) scale(0.7);
-            transform: translateX(600px) scale(0.7); }
+    -webkit-transform: translateX(500px) scale(0.7);
+            transform: translateX(500px) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: none;
-            transform: none; } }
+    -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1); } }
+
+@-webkit-keyframes up-down {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  50% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px); }
+  100% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px); } }
+
+@keyframes up-down {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  50% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px); }
+  100% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px); } }
 
 .ad-diapers__child-img {
   position: relative; }

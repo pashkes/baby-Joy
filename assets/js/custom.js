@@ -272,7 +272,7 @@ $(function () {
       });
 
       $('.ad-diapers__cloud').css({
-        'transform' : 'translate(0%, -' + st /3 + '%'
+        'transform' : 'translate(0%, -' + st /4.5 + '%'
       });
 
       $('.ad-diapers__aircraft').css({
@@ -281,6 +281,7 @@ $(function () {
     }
   });
   //end
+
 
 });
 
