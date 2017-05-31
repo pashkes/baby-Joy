@@ -260,11 +260,13 @@ $(function () {
       });
 
       $('.header__nipple').css({
-        top: 0 - $(window).scrollTop() * .4
+        'transform' : 'translate(0%, -' + st /3 + '%'
+
       });
 
       $('.header__heart').css({
-        top: 0 - $(window).scrollTop() * .4
+        'transform' : 'translate(0%, -' + st /3 + '%'
+
       });
 
       $('.ad-diapers__cloud').css({

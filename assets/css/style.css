@@ -2343,8 +2343,8 @@ li.fancybox-thumbs-loading {
 @-webkit-keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(200%) scale(0.7);
-            transform: translateX(200%) scale(0.7); }
+    -webkit-transform: translateX(600px) scale(0.7);
+            transform: translateX(600px) scale(0.7); }
   100% {
     opacity: 1;
     -webkit-transform: none;
@@ -2353,8 +2353,8 @@ li.fancybox-thumbs-loading {
 @keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(200%) scale(0.7);
-            transform: translateX(200%) scale(0.7); }
+    -webkit-transform: translateX(600px) scale(0.7);
+            transform: translateX(600px) scale(0.7); }
   100% {
     opacity: 1;
     -webkit-transform: none;
