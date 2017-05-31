@@ -2379,17 +2379,13 @@ li.fancybox-thumbs-loading {
   0% {
     bottom: 13%; }
   50% {
-    bottom: 10%; }
-  100% {
-    bottom: 16%; } }
+    bottom: 18%; } }
 
 @keyframes up-down {
   0% {
     bottom: 13%; }
   50% {
-    bottom: 10%; }
-  100% {
-    bottom: 16%; } }
+    bottom: 18%; } }
 
 .ad-diapers__child-img {
   position: relative; }
