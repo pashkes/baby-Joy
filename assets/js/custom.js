@@ -12,7 +12,7 @@ $(function () {
   // var parallax = new Parallax(scene);
 
 
-
+$('.form').removeClass('hide');
   //increment and decrement number on field
   $('.single-product__quantity').on('click', function(event){
     var $target = $(event.target);

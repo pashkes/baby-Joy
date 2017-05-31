@@ -315,6 +315,9 @@ img {
     .btn--bg-blue:hover {
       color: #fff; }
 
+.hide {
+  display: none; }
+
 .icon-arrow {
   position: relative;
   display: inline-block;
@@ -2491,6 +2494,11 @@ li.fancybox-thumbs-loading {
 .ad-diapers {
   position: relative;
   background: linear-gradient(to bottom, #f7fcff 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%); }
+  .ad-diapers li {
+    visibility: hidden; }
+
+.slick-initialized .slick-slide {
+  visibility: visible; }
 
 .ad-diapers__shares {
   position: absolute;
