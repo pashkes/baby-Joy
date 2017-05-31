@@ -3,9 +3,9 @@
 /**
  * Document ready functions
  */
+
+
 $(function () {
-  //svg polifill for IE
-  svg4everybody();
 
   var start = 0;
 
@@ -59,15 +59,18 @@ $(function () {
   btnLoc.on('click', function () {
     overlayLocation.addClass(overlayShow);
   });
-
   closeOverlay.on('click', function () {
     $(this).parents(overlay).removeClass(overlayShow);
   });
+  $('.js-skip').on('click', function () {
+    $(this).parents(overlay).removeClass(overlayShow);
+  });
   overlay.mouseup(function (e) {
-    if (form.has(e.target).length === 0) {
+    if (form.has(e.target).length === 0){
       $(this).removeClass('overlay--show');
     }
   });
+
 //end
 
 
@@ -242,26 +245,34 @@ $(function () {
 
   $(window).on('scroll', function () {
     var scrollCoef = 0.0010;
+    var st = $(this).scrollTop();
     if ($(window).width() > 1024) {
       headerContent.css({
         opacity: 1 - $(window).scrollTop() * scrollCoef
       });
-      $('.ad-diapers__slide').css({
-        top: 2 - $(window).scrollTop() * .35
-      });
-      $('.header__nipple').css({
-        top: 2 - $(window).scrollTop() * .4
-      });
-      // var posAir = $('.ad-diapers__aircraft').position().top;
-      // $('.ad-diapers__aircraft').css({
-      //   top: posAir - $(window).scrollTop() * .1
-      // });
-      $('.header__heart').css({
-        top: 2 - $(window).scrollTop() * .4
+
+      $('.ad-diapers__info').css({
+        top: 0 - $(window).scrollTop() * .35
       });
 
-      $('.ad-diapers__img').css({
-        top: 2 - $(window).scrollTop() * .6
+      $('.ad-diapers__child-img').css({
+        top: 0 - $(window).scrollTop() * .35
+      });
+
+      $('.header__nipple').css({
+        top: 0 - $(window).scrollTop() * .4
+      });
+
+      $('.header__heart').css({
+        top: 0 - $(window).scrollTop() * .4
+      });
+
+      $('.ad-diapers__cloud').css({
+        'transform' : 'translate(0%, -' + st /3 + '%'
+      });
+
+      $('.ad-diapers__aircraft').css({
+        'transform' : 'translate(-' + st / 5  + '%, -' + st  + '%'
       });
     }
   });
@@ -269,3 +280,5 @@ $(function () {
 
 
 });
+
+

@@ -375,7 +375,7 @@ img {
   border: none;
   font-size: 0;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3;
   transition: all .35s ease-out;
   border-radius: 50%; }
   .slider-arrow::before {
@@ -2010,6 +2010,12 @@ li.fancybox-thumbs-loading {
     content: "";
     display: table;
     clear: both; }
+  .header__location.form {
+    max-width: 369px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 45px;
+    padding: 24px; }
   .header__location::before {
     content: '';
     position: absolute;
@@ -2306,9 +2312,7 @@ li.fancybox-thumbs-loading {
     .ad-diapers__cloud--top p {
       max-width: 127px; }
   .ad-diapers__cloud--middle {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%); }
+    top: 53%; }
     .ad-diapers__cloud--middle p {
       max-width: 160px; }
   .ad-diapers__cloud--bottom {
@@ -2339,22 +2343,25 @@ li.fancybox-thumbs-loading {
 @-webkit-keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translate(200%, -120px);
-            transform: translate(200%, -120px); }
+    -webkit-transform: translateX(200%) scale(0.7);
+            transform: translateX(200%) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    -webkit-transform: none;
+            transform: none; } }
 
 @keyframes flight {
   0% {
     opacity: 0;
-    -webkit-transform: translate(200%, -120px);
-            transform: translate(200%, -120px); }
+    -webkit-transform: translateX(200%) scale(0.7);
+            transform: translateX(200%) scale(0.7); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    -webkit-transform: none;
+            transform: none; } }
+
+.ad-diapers__child-img {
+  position: relative; }
 
 .product {
   max-width: 1170px;
@@ -4282,6 +4289,12 @@ input:-ms-input-placeholder {
     left: -28px; }
   .slider-arrow--prev::before{
     margin-left: 5px; }
+  .slider-arrow--prev .ad-diapers__shares{
+    -webkit-transform: translate(-10px, 50px) rotate(25deg);
+    transform: translate(-10px, 50px) rotate(25deg); }
+  .slider-arrow--prev:hover .ad-diapers__shares{
+    -webkit-transform: translate(12px, 0px) rotate(0deg);
+    transform: translate(12px, 0px) rotate(0deg); }
   .slider-arrow::before{
     width: 10px;
     height: 16px;
@@ -4622,15 +4635,16 @@ input:-ms-input-placeholder {
     margin-right: 20px; }
   .header__location{
     position: relative;
+    left: auto;
+    transition: opacity .3s; }
+  .header__location.form{
     width: 390px;
     margin-top: 0;
     margin-right: auto;
-    margin-left: auto;
-    left: auto;
-    transition: opacity .3s; }
+    margin-left: auto; }
   .header__location::before{
     display: none; }
-  .overlay--show .header__location{
+  .overlay--show .header__location.form{
     -webkit-transform: translateY(100px);
     transform: translateY(100px); }
   .kids-filter{
