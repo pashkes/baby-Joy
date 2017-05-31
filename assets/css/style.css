@@ -2377,25 +2377,19 @@ li.fancybox-thumbs-loading {
 
 @-webkit-keyframes up-down {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
+    bottom: 13%; }
   50% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px); }
+    bottom: 10%; }
   100% {
-    -webkit-transform: translateY(30px);
-            transform: translateY(30px); } }
+    bottom: 16%; } }
 
 @keyframes up-down {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
+    bottom: 13%; }
   50% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px); }
+    bottom: 10%; }
   100% {
-    -webkit-transform: translateY(30px);
-            transform: translateY(30px); } }
+    bottom: 16%; } }
 
 .ad-diapers__child-img {
   position: relative; }

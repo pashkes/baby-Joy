@@ -276,7 +276,7 @@ $(function () {
       });
 
       $('.ad-diapers__aircraft').css({
-        'transform' : 'translate(-' + st / 5  + '%, -' + st  + '%'
+        'transform' : 'translate(-' + st / 5  + '%, -' + st / 2.5  + '%'
       });
     }
   });
