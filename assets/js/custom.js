@@ -6,9 +6,14 @@
 
 
 $(function () {
+  //Parallax header
+  // var scene = $('#scene').get(0);
+  //
+  // var parallax = new Parallax(scene);
 
-  var start = 0;
 
+
+  //increment and decrement number on field
   $('.single-product__quantity').on('click', function(event){
     var $target = $(event.target);
     var start=Number($(this).find('.single-product__field').val());
@@ -241,31 +246,28 @@ $(function () {
 //end
 
   //opacity header on scroll
-  var headerContent = $('.ad-diapers__slide');
-
   $(window).on('scroll', function () {
     var scrollCoef = 0.0010;
     var st = $(this).scrollTop();
     if ($(window).width() > 1024) {
-      headerContent.css({
-        opacity: 1 - $(window).scrollTop() * scrollCoef
+      $('.ad-diapers__slide').css({
+        opacity: 1 - st * scrollCoef
       });
 
       $('.ad-diapers__info').css({
-        top: 0 - $(window).scrollTop() * .35
+        'transform' : 'translate(0%, -' + st /12 + '%'
       });
 
       $('.ad-diapers__child-img').css({
-        top: 0 - $(window).scrollTop() * .35
+        'transform' : 'translate(0%, -' + st /12 + '%'
       });
 
       $('.header__nipple').css({
-        'transform' : 'translate(0%, -' + st /3 + '%'
-
+        'transform' : 'translate(0%, -' + st /9 + '%'
       });
 
       $('.header__heart').css({
-        'transform' : 'translate(0%, -' + st /3 + '%'
+        'transform' : 'translate(0%, -' + st /9 + '%'
 
       });
 
@@ -279,7 +281,6 @@ $(function () {
     }
   });
   //end
-
 
 });
 

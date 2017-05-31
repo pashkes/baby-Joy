@@ -4869,6 +4869,8 @@ input:-ms-input-placeholder {
 @media (max-width: 425px){
   .header__location{
     width: 284px; }
+  .header__location.form{
+    max-width: 280px; }
   .header__city--third{
     left: 22%; }
   .header__logo{

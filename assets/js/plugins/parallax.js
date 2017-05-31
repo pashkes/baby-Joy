@@ -1,538 +1,587 @@
+//============================================================
+//
+// The MIT License
+//
+// Copyright (C) 2014 Matthew Wagerfield - @wagerfield
+//
+// Permission is hereby granted, free of charge, to any
+// person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the
+// Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to
+// permit persons to whom the Software is furnished to do
+// so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice
+// shall be included in all copies or substantial portions
+// of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY
+// OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+// EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+// AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+// OR OTHER DEALINGS IN THE SOFTWARE.
+//
+//============================================================
+
 /**
-* Parallax.js
-* @author Matthew Wagerfield - @wagerfield, René Roth - mail@reneroth.org
-* @description Creates a parallax effect between an array of layers,
-*              driving the motion from the gyroscope output of a smartdevice.
-*              If no gyroscope is available, the cursor position is used.
-*/
+ * jQuery || Zepto Parallax Plugin
+ * @author Matthew Wagerfield - @wagerfield
+ * @description Creates a parallax effect between an array of layers,
+ *              driving the motion from the gyroscope output of a smartdevice.
+ *              If no gyroscope is available, the cursor position is used.
+ */
+;(function($, window, document, undefined) {
 
-import rqAnFr from 'raf'
+  // Strict Mode
+  'use strict';
 
-const helpers = {
-  propertyCache: {},
-  vendors: [null,['-webkit-','webkit'],['-moz-','Moz'],['-o-','O'],['-ms-','ms']],
+  // Constants
+  var NAME = 'parallax';
+  var MAGIC_NUMBER = 30;
+  var DEFAULTS = {
+    relativeInput: false,
+    clipRelativeInput: false,
+    calibrationThreshold: 100,
+    calibrationDelay: 500,
+    supportDelay: 500,
+    calibrateX: false,
+    calibrateY: true,
+    invertX: true,
+    invertY: true,
+    limitX: false,
+    limitY: false,
+    scalarX: 10.0,
+    scalarY: 10.0,
+    frictionX: 0.1,
+    frictionY: 0.1,
+    originX: 0.5,
+    originY: 0.5,
+    pointerEvents: true,
+    precision: 1
+  };
 
-  clamp(value, min, max) {
-    return min < max
-      ? (value < min ? min : value > max ? max : value)
-      : (value < max ? max : value > min ? min : value)
-  },
+  function Plugin(element, options) {
 
-  data(element, name) {
-    return helpers.deserialize(element.getAttribute('data-'+name))
-  },
+    // DOM Context
+    this.element = element;
 
-  deserialize(value) {
-    if (value === 'true') {
-      return true
-    } else if (value === 'false') {
-      return false
-    } else if (value === 'null') {
-      return null
-    } else if (!isNaN(parseFloat(value)) && isFinite(value)) {
-      return parseFloat(value)
-    } else {
-      return value
+    // Selections
+    this.$context = $(element).data('api', this);
+    this.$layers = this.$context.find('.layer');
+
+    // Data Extraction
+    var data = {
+      calibrateX: this.$context.data('calibrate-x') || null,
+      calibrateY: this.$context.data('calibrate-y') || null,
+      invertX: this.$context.data('invert-x') || null,
+      invertY: this.$context.data('invert-y') || null,
+      limitX: parseFloat(this.$context.data('limit-x')) || null,
+      limitY: parseFloat(this.$context.data('limit-y')) || null,
+      scalarX: parseFloat(this.$context.data('scalar-x')) || null,
+      scalarY: parseFloat(this.$context.data('scalar-y')) || null,
+      frictionX: parseFloat(this.$context.data('friction-x')) || null,
+      frictionY: parseFloat(this.$context.data('friction-y')) || null,
+      originX: parseFloat(this.$context.data('origin-x')) || null,
+      originY: parseFloat(this.$context.data('origin-y')) || null,
+      pointerEvents: this.$context.data('pointer-events') || true,
+      precision: parseFloat(this.$context.data('precision')) || 1
+    };
+
+    // Delete Null Data Values
+    for (var key in data) {
+      if (data[key] === null) delete data[key];
     }
-  },
 
-  camelCase(value) {
-    return value.replace(/-+(.)?/g, (match, character) => {
-      return character ? character.toUpperCase() : ''
-    })
-  },
+    // Compose Settings Object
+    $.extend(this, DEFAULTS, options, data);
 
-  accelerate(element) {
-    helpers.css(element, 'transform', 'translate3d(0,0,0) rotate(0.0001deg)')
-    helpers.css(element, 'transform-style', 'preserve-3d')
-    helpers.css(element, 'backface-visibility', 'hidden')
-  },
+    // States
+    this.calibrationTimer = null;
+    this.calibrationFlag = true;
+    this.enabled = false;
+    this.depthsX = [];
+    this.depthsY = [];
+    this.raf = null;
 
-  transformSupport(value) {
-    let element = document.createElement('div'),
-        propertySupport = false,
-        propertyValue = null,
-        featureSupport = false,
-        cssProperty = null,
-        jsProperty = null
-    for (let i = 0, l = helpers.vendors.length; i < l; i++) {
-      if (helpers.vendors[i] !== null) {
-        cssProperty = helpers.vendors[i][0] + 'transform'
-        jsProperty = helpers.vendors[i][1] + 'Transform'
+    // Element Bounds
+    this.bounds = null;
+    this.ex = 0;
+    this.ey = 0;
+    this.ew = 0;
+    this.eh = 0;
+
+    // Element Center
+    this.ecx = 0;
+    this.ecy = 0;
+
+    // Element Range
+    this.erx = 0;
+    this.ery = 0;
+
+    // Calibration
+    this.cx = 0;
+    this.cy = 0;
+
+    // Input
+    this.ix = 0;
+    this.iy = 0;
+
+    // Motion
+    this.mx = 0;
+    this.my = 0;
+
+    // Velocity
+    this.vx = 0;
+    this.vy = 0;
+
+    // Callbacks
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
+    this.onOrientationTimer = this.onOrientationTimer.bind(this);
+    this.onCalibrationTimer = this.onCalibrationTimer.bind(this);
+    this.onAnimationFrame = this.onAnimationFrame.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
+
+    // Initialise
+    this.initialise();
+  }
+
+  Plugin.prototype.transformSupport = function(value) {
+    var element = document.createElement('div');
+    var propertySupport = false;
+    var propertyValue = null;
+    var featureSupport = false;
+    var cssProperty = null;
+    var jsProperty = null;
+    for (var i = 0, l = this.vendors.length; i < l; i++) {
+      if (this.vendors[i] !== null) {
+        cssProperty = this.vendors[i][0] + 'transform';
+        jsProperty = this.vendors[i][1] + 'Transform';
       } else {
-        cssProperty = 'transform'
-        jsProperty = 'transform'
+        cssProperty = 'transform';
+        jsProperty = 'transform';
       }
       if (element.style[jsProperty] !== undefined) {
-        propertySupport = true
-        break
+        propertySupport = true;
+        break;
       }
     }
     switch(value) {
       case '2D':
-        featureSupport = propertySupport
-        break
+        featureSupport = propertySupport;
+        break;
       case '3D':
         if (propertySupport) {
-          let body = document.body || document.createElement('body'),
-              documentElement = document.documentElement,
-              documentOverflow = documentElement.style.overflow,
-              isCreatedBody = false
-
+          var body = document.body || document.createElement('body');
+          var documentElement = document.documentElement;
+          var documentOverflow = documentElement.style.overflow;
+          var isCreatedBody = false;
           if (!document.body) {
-            isCreatedBody = true
-            documentElement.style.overflow = 'hidden'
-            documentElement.appendChild(body)
-            body.style.overflow = 'hidden'
-            body.style.background = ''
+            isCreatedBody = true;
+            documentElement.style.overflow = 'hidden';
+            documentElement.appendChild(body);
+            body.style.overflow = 'hidden';
+            body.style.background = '';
           }
-
-          body.appendChild(element)
-          element.style[jsProperty] = 'translate3d(1px,1px,1px)'
-          propertyValue = window.getComputedStyle(element).getPropertyValue(cssProperty)
-          featureSupport = propertyValue !== undefined && propertyValue.length > 0 && propertyValue !== 'none'
-          documentElement.style.overflow = documentOverflow
-          body.removeChild(element)
-
+          body.appendChild(element);
+          element.style[jsProperty] = 'translate3d(1px,1px,1px)';
+          propertyValue = window.getComputedStyle(element).getPropertyValue(cssProperty);
+          featureSupport = propertyValue !== undefined && propertyValue.length > 0 && propertyValue !== "none";
+          documentElement.style.overflow = documentOverflow;
+          body.removeChild(element);
           if ( isCreatedBody ) {
-            body.removeAttribute('style')
-            body.parentNode.removeChild(body)
+            body.removeAttribute('style');
+            body.parentNode.removeChild(body);
           }
         }
-        break
+        break;
     }
-    return featureSupport
-  },
+    return featureSupport;
+  };
 
-  css(element, property, value) {
-    let jsProperty = helpers.propertyCache[property]
-    if (!jsProperty) {
-      for (let i = 0, l = helpers.vendors.length; i < l; i++) {
-        if (helpers.vendors[i] !== null) {
-          jsProperty = helpers.camelCase(helpers.vendors[i][1] + '-' + property)
-        } else {
-          jsProperty = property
-        }
-        if (element.style[jsProperty] !== undefined) {
-          helpers.propertyCache[property] = jsProperty
-          break
-        }
-      }
-    }
-    element.style[jsProperty] = value
-  }
+  Plugin.prototype.ww = null;
+  Plugin.prototype.wh = null;
+  Plugin.prototype.wcx = null;
+  Plugin.prototype.wcy = null;
+  Plugin.prototype.wrx = null;
+  Plugin.prototype.wry = null;
+  Plugin.prototype.portrait = null;
+  Plugin.prototype.desktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i);
+  Plugin.prototype.vendors = [null,['-webkit-','webkit'],['-moz-','Moz'],['-o-','O'],['-ms-','ms']];
+  Plugin.prototype.motionSupport = !!window.DeviceMotionEvent;
+  Plugin.prototype.orientationSupport = !!window.DeviceOrientationEvent;
+  Plugin.prototype.orientationStatus = 0;
+  Plugin.prototype.transform2DSupport = Plugin.prototype.transformSupport('2D');
+  Plugin.prototype.transform3DSupport = Plugin.prototype.transformSupport('3D');
+  Plugin.prototype.propertyCache = {};
 
-}
+  Plugin.prototype.initialise = function() {
 
-const MAGIC_NUMBER = 30,
-      DEFAULTS = {
-        relativeInput: false,
-        clipRelativeInput: false,
-        hoverOnly: false,
-        calibrationThreshold: 100,
-        calibrationDelay: 500,
-        supportDelay: 500,
-        calibrateX: false,
-        calibrateY: true,
-        invertX: true,
-        invertY: true,
-        limitX: false,
-        limitY: false,
-        scalarX: 10.0,
-        scalarY: 10.0,
-        frictionX: 0.1,
-        frictionY: 0.1,
-        originX: 0.5,
-        originY: 0.5,
-        pointerEvents: false,
-        precision: 1
-      }
-
-class Parallax {
-  constructor(element, options) {
-
-    this.element = element
-    this.layers = element.getElementsByClassName('layer')
-
-    const data = {
-      calibrateX: helpers.data(this.element, 'calibrate-x'),
-      calibrateY: helpers.data(this.element, 'calibrate-y'),
-      invertX: helpers.data(this.element, 'invert-x'),
-      invertY: helpers.data(this.element, 'invert-y'),
-      limitX: helpers.data(this.element, 'limit-x'),
-      limitY: helpers.data(this.element, 'limit-y'),
-      scalarX: helpers.data(this.element, 'scalar-x'),
-      scalarY: helpers.data(this.element, 'scalar-y'),
-      frictionX: helpers.data(this.element, 'friction-x'),
-      frictionY: helpers.data(this.element, 'friction-y'),
-      originX: helpers.data(this.element, 'origin-x'),
-      originY: helpers.data(this.element, 'origin-y'),
-      pointerEvents: helpers.data(this.element, 'pointer-events'),
-      precision: helpers.data(this.element, 'precision'),
-      relativeInput: helpers.data(this.element, 'relative-input'),
-      clipRelativeInput: helpers.data(this.element, 'clip-relative-input'),
-      hoverOnly: helpers.data(this.element, 'hover-only')
-    }
-
-    for (let key in data) {
-      if (data[key] === null) {
-        delete data[key]
-      }
-    }
-
-    Object.assign(this, DEFAULTS, data, options)
-
-    this.calibrationTimer = null
-    this.calibrationFlag = true
-    this.enabled = false
-    this.depthsX = []
-    this.depthsY = []
-    this.raf = null
-
-    this.bounds = null
-    this.elementPositionX = 0
-    this.elementPositionY = 0
-    this.elementWidth = 0
-    this.elementHeight = 0
-
-    this.elementCenterX = 0
-    this.elementCenterY = 0
-
-    this.elementRangeX = 0
-    this.elementRangeY = 0
-
-    this.calibrationX = 0
-    this.calibrationY = 0
-
-    this.inputX = 0
-    this.inputY = 0
-
-    this.motionX = 0
-    this.motionY = 0
-
-    this.velocityX = 0
-    this.velocityY = 0
-
-    this.onMouseMove = this.onMouseMove.bind(this)
-    this.onDeviceOrientation = this.onDeviceOrientation.bind(this)
-    this.onOrientationTimer = this.onOrientationTimer.bind(this)
-    this.onCalibrationTimer = this.onCalibrationTimer.bind(this)
-    this.onAnimationFrame = this.onAnimationFrame.bind(this)
-    this.onWindowResize = this.onWindowResize.bind(this)
-
-    this.windowWidth = null
-    this.windowHeight = null
-    this.windowCenterX = null
-    this.windowCenterY = null
-    this.windowRadiusX = null
-    this.windowRadiusY = null
-    this.portrait = null
-    this.desktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i)
-    this.motionSupport = !!window.DeviceMotionEvent && !this.desktop
-    this.orientationSupport = !!window.DeviceOrientationEvent && !this.desktop
-    this.orientationStatus = 0
-    this.motionStatus = 0
-
-    this.initialise()
-  }
-
-  initialise() {
-    if (this.transform2DSupport === undefined) {
-      this.transform2DSupport = helpers.transformSupport('2D')
-      this.transform3DSupport = helpers.transformSupport('3D')
-    }
-
-    // Configure Context Styles
-    if (this.transform3DSupport) {
-      helpers.accelerate(this.element)
-    }
-
-    let style = window.getComputedStyle(this.element)
-    if (style.getPropertyValue('position') === 'static') {
-      this.element.style.position = 'relative'
+    // Configure Styles
+    if (this.$context.css('position') === 'static') {
+      this.$context.css({
+        position:'relative'
+      });
     }
 
     // Pointer events
-    if(!this.pointerEvents) {
-      this.element.style.pointerEvents = 'none'
+    if(!this.pointerEvents){
+      this.$context.css({
+        pointerEvents: 'none'
+      });
     }
+
+    // Hardware Accelerate Context
+    this.accelerate(this.$context);
 
     // Setup
-    this.updateLayers()
-    this.updateDimensions()
-    this.enable()
-    this.queueCalibration(this.calibrationDelay)
-  }
+    this.updateLayers();
+    this.updateDimensions();
+    this.enable();
+    this.queueCalibration(this.calibrationDelay);
+  };
 
-  updateLayers() {
-    this.layers = this.element.getElementsByClassName('layer')
-    this.depthsX = []
-    this.depthsY = []
+  Plugin.prototype.updateLayers = function() {
 
-    for (let index = 0; index < this.layers.length; index++) {
-      let layer = this.layers[index]
+    // Cache Layer Elements
+    this.$layers = this.$context.find('.layer');
+    this.depthsX = [];
+    this.depthsY = [];
 
-      if (this.transform3DSupport) {
-        helpers.accelerate(layer)
-      }
+    // Configure Layer Styles
+    this.$layers.css({
+      position:'absolute',
+      display:'block',
+      left: 0,
+      top: 0
+    });
+    this.$layers.first().css({
+      position:'relative'
+    });
 
-      layer.style.position = index ? 'absolute' : 'relative'
-      layer.style.display = 'block'
-      layer.style.left = 0
-      layer.style.top = 0
+    // Hardware Accelerate Layers
+    this.accelerate(this.$layers);
 
-      let depth = helpers.data(layer, 'depth') || 0
-      this.depthsX.push(helpers.data(layer, 'depth-x') || depth)
-      this.depthsY.push(helpers.data(layer, 'depth-y') || depth)
-    }
-  }
+    // Cache Depths
+    this.$layers.each($.proxy(function(index, element) {
+      //Graceful fallback on depth if depth-x or depth-y is absent
+      var depth = $(element).data('depth') || 0;
+      this.depthsX.push($(element).data('depth-x') || depth);
+      this.depthsY.push($(element).data('depth-y') || depth);
+    }, this));
+  };
 
-  updateDimensions() {
-    this.windowWidth = window.innerWidth
-    this.windowHeight = window.innerHeight
-    this.windowCenterX = this.windowWidth * this.originX
-    this.windowCenterY = this.windowHeight * this.originY
-    this.windowRadiusX = Math.max(this.windowCenterX, this.windowWidth - this.windowCenterX)
-    this.windowRadiusY = Math.max(this.windowCenterY, this.windowHeight - this.windowCenterY)
-  }
+  Plugin.prototype.updateDimensions = function() {
+    this.ww = window.innerWidth;
+    this.wh = window.innerHeight;
+    this.wcx = this.ww * this.originX;
+    this.wcy = this.wh * this.originY;
+    this.wrx = Math.max(this.wcx, this.ww - this.wcx);
+    this.wry = Math.max(this.wcy, this.wh - this.wcy);
+  };
 
-  updateBounds() {
-    this.bounds = this.element.getBoundingClientRect()
-    this.elementPositionX = this.bounds.left
-    this.elementPositionY = this.bounds.top
-    this.elementWidth = this.bounds.width
-    this.elementHeight = this.bounds.height
-    this.elementCenterX = this.elementWidth * this.originX
-    this.elementCenterY = this.elementHeight * this.originY
-    this.elementRangeX = Math.max(this.elementCenterX, this.elementWidth - this.elementCenterX)
-    this.elementRangeY = Math.max(this.elementCenterY, this.elementHeight - this.elementCenterY)
-  }
+  Plugin.prototype.updateBounds = function() {
+    this.bounds = this.element.getBoundingClientRect();
+    this.ex = this.bounds.left;
+    this.ey = this.bounds.top;
+    this.ew = this.bounds.width;
+    this.eh = this.bounds.height;
+    this.ecx = this.ew * this.originX;
+    this.ecy = this.eh * this.originY;
+    this.erx = Math.max(this.ecx, this.ew - this.ecx);
+    this.ery = Math.max(this.ecy, this.eh - this.ecy);
+  };
 
-  queueCalibration(delay) {
-    clearTimeout(this.calibrationTimer)
-    this.calibrationTimer = setTimeout(this.onCalibrationTimer, delay)
-  }
+  Plugin.prototype.queueCalibration = function(delay) {
+    clearTimeout(this.calibrationTimer);
+    this.calibrationTimer = setTimeout(this.onCalibrationTimer, delay);
+  };
 
-  enable() {
-    if (this.enabled) {
-      return
-    }
-    this.enabled = true
-
-    if (this.orientationSupport) {
-      this.portrait = null
-      window.addEventListener('deviceorientation', this.onDeviceOrientation)
-      setTimeout(this.onOrientationTimer, this.supportDelay)
-    } else if (this.motionSupport) {
-      this.portrait = null
-      window.addEventListener('devicemotion', this.onDeviceMotion)
-      setTimeout(this.onMotionTimer, this.supportDelay)
-    } else {
-      this.calibrationX = 0
-      this.calibrationY = 0
-      this.portrait = false
-      window.addEventListener('mousemove', this.onMouseMove)
-    }
-
-    window.addEventListener('resize', this.onWindowResize)
-    this.raf = rqAnFr(this.onAnimationFrame)
-  }
-
-  disable() {
+  Plugin.prototype.enable = function() {
     if (!this.enabled) {
-      return
+      this.enabled = true;
+      if (this.orientationSupport) {
+        this.portrait = null;
+        window.addEventListener('deviceorientation', this.onDeviceOrientation);
+        setTimeout(this.onOrientationTimer, this.supportDelay);
+      } else {
+        this.cx = 0;
+        this.cy = 0;
+        this.portrait = false;
+        window.addEventListener('mousemove', this.onMouseMove);
+      }
+      window.addEventListener('resize', this.onWindowResize);
+      this.raf = requestAnimationFrame(this.onAnimationFrame);
     }
-    this.enabled = false
+  };
 
-    if (this.orientationSupport) {
-      window.removeEventListener('deviceorientation', this.onDeviceOrientation)
-    } else if (this.motionSupport) {
-      window.removeEventListener('devicemotion', this.onDeviceMotion)
-    } else {
-      window.removeEventListener('mousemove', this.onMouseMove)
+  Plugin.prototype.disable = function() {
+    if (this.enabled) {
+      this.enabled = false;
+      if (this.orientationSupport) {
+        window.removeEventListener('deviceorientation', this.onDeviceOrientation);
+      } else {
+        window.removeEventListener('mousemove', this.onMouseMove);
+      }
+      window.removeEventListener('resize', this.onWindowResize);
+      cancelAnimationFrame(this.raf);
     }
+  };
 
-    window.removeEventListener('resize', this.onWindowResize)
-    rqAnFr.cancel(this.raf)
-  }
+  Plugin.prototype.calibrate = function(x, y) {
+    this.calibrateX = x === undefined ? this.calibrateX : x;
+    this.calibrateY = y === undefined ? this.calibrateY : y;
+  };
 
-  calibrate(x, y) {
-    this.calibrateX = x === undefined ? this.calibrateX : x
-    this.calibrateY = y === undefined ? this.calibrateY : y
-  }
+  Plugin.prototype.invert = function(x, y) {
+    this.invertX = x === undefined ? this.invertX : x;
+    this.invertY = y === undefined ? this.invertY : y;
+  };
 
-  invert(x, y) {
-    this.invertX = x === undefined ? this.invertX : x
-    this.invertY = y === undefined ? this.invertY : y
-  }
+  Plugin.prototype.friction = function(x, y) {
+    this.frictionX = x === undefined ? this.frictionX : x;
+    this.frictionY = y === undefined ? this.frictionY : y;
+  };
 
-  friction(x, y) {
-    this.frictionX = x === undefined ? this.frictionX : x
-    this.frictionY = y === undefined ? this.frictionY : y
-  }
+  Plugin.prototype.scalar = function(x, y) {
+    this.scalarX = x === undefined ? this.scalarX : x;
+    this.scalarY = y === undefined ? this.scalarY : y;
+  };
 
-  scalar(x, y) {
-    this.scalarX = x === undefined ? this.scalarX : x
-    this.scalarY = y === undefined ? this.scalarY : y
-  }
+  Plugin.prototype.limit = function(x, y) {
+    this.limitX = x === undefined ? this.limitX : x;
+    this.limitY = y === undefined ? this.limitY : y;
+  };
 
-  limit(x, y) {
-    this.limitX = x === undefined ? this.limitX : x
-    this.limitY = y === undefined ? this.limitY : y
-  }
+  Plugin.prototype.origin = function(x, y) {
+    this.originX = x === undefined ? this.originX : x;
+    this.originY = y === undefined ? this.originY : y;
+  };
 
-  origin(x, y) {
-    this.originX = x === undefined ? this.originX : x
-    this.originY = y === undefined ? this.originY : y
-  }
+  Plugin.prototype.clamp = function(value, min, max) {
+    value = Math.max(value, min);
+    value = Math.min(value, max);
+    return value;
+  };
 
-  setPosition(element, x, y) {
-    x = x.toFixed(this.precision) + 'px'
-    y = y.toFixed(this.precision) + 'px'
+  Plugin.prototype.css = function(element, property, value) {
+    var jsProperty = this.propertyCache[property];
+    if (!jsProperty) {
+      for (var i = 0, l = this.vendors.length; i < l; i++) {
+        if (this.vendors[i] !== null) {
+          jsProperty = $.camelCase(this.vendors[i][1] + '-' + property);
+        } else {
+          jsProperty = property;
+        }
+        if (element.style[jsProperty] !== undefined) {
+          this.propertyCache[property] = jsProperty;
+          break;
+        }
+      }
+    }
+    element.style[jsProperty] = value;
+  };
+
+  Plugin.prototype.accelerate = function($element) {
+    for (var i = 0, l = $element.length; i < l; i++) {
+      var element = $element[i];
+      this.css(element, 'transform', 'translate3d(0,0,0)');
+      this.css(element, 'transform-style', 'preserve-3d');
+      this.css(element, 'backface-visibility', 'hidden');
+    }
+  };
+
+  Plugin.prototype.setPosition = function(element, x, y) {
+    x += 'px';
+    y += 'px';
     if (this.transform3DSupport) {
-      helpers.css(element, 'transform', 'translate3d(' + x + ',' + y + ',0)')
+      this.css(element, 'transform', 'translate3d('+x+','+y+',0)');
     } else if (this.transform2DSupport) {
-      helpers.css(element, 'transform', 'translate(' + x + ',' + y + ')')
+      this.css(element, 'transform', 'translate('+x+','+y+')');
     } else {
-      element.style.left = x
-      element.style.top = y
+      element.style.left = x;
+      element.style.top = y;
     }
-  }
+  };
 
-  onOrientationTimer() {
+  Plugin.prototype.onOrientationTimer = function(event) {
     if (this.orientationSupport && this.orientationStatus === 0) {
-      this.disable()
-      this.orientationSupport = false
-      this.enable()
+      this.disable();
+      this.orientationSupport = false;
+      this.enable();
     }
-  }
+  };
 
-  onMotionTimer() {
-    if (this.motionSupport && this.motionStatus === 0) {
-      this.disable()
-      this.motionSupport = false
-      this.enable()
-    }
-  }
+  Plugin.prototype.onCalibrationTimer = function(event) {
+    this.calibrationFlag = true;
+  };
 
-  onCalibrationTimer() {
-    this.calibrationFlag = true
-  }
+  Plugin.prototype.onWindowResize = function(event) {
+    this.updateDimensions();
+  };
 
-  onWindowResize() {
-    this.updateDimensions()
-  }
-
-  onAnimationFrame() {
-    this.updateBounds()
-    let calibratedInputX = this.inputX - this.calibrationX,
-        calibratedInputY = this.inputY - this.calibrationY
-    if ((Math.abs(calibratedInputX) > this.calibrationThreshold) || (Math.abs(calibratedInputY) > this.calibrationThreshold)) {
-      this.queueCalibration(0)
+  Plugin.prototype.onAnimationFrame = function() {
+    this.updateBounds();
+    var dx = this.ix - this.cx;
+    var dy = this.iy - this.cy;
+    if ((Math.abs(dx) > this.calibrationThreshold) || (Math.abs(dy) > this.calibrationThreshold)) {
+      this.queueCalibration(0);
     }
     if (this.portrait) {
-      this.motionX = this.calibrateX ? calibratedInputY : this.inputY
-      this.motionY = this.calibrateY ? calibratedInputX : this.inputX
+      this.mx = this.calibrateX ? dy : this.iy;
+      this.my = this.calibrateY ? dx : this.ix;
     } else {
-      this.motionX = this.calibrateX ? calibratedInputX : this.inputX
-      this.motionY = this.calibrateY ? calibratedInputY : this.inputY
+      this.mx = this.calibrateX ? dx : this.ix;
+      this.my = this.calibrateY ? dy : this.iy;
     }
-    this.motionX *= this.elementWidth * (this.scalarX / 100)
-    this.motionY *= this.elementHeight * (this.scalarY / 100)
+    this.mx *= this.ew * (this.scalarX / 100);
+    this.my *= this.eh * (this.scalarY / 100);
     if (!isNaN(parseFloat(this.limitX))) {
-      this.motionX = helpers.clamp(this.motionX, -this.limitX, this.limitX)
+      this.mx = this.clamp(this.mx, -this.limitX, this.limitX);
     }
     if (!isNaN(parseFloat(this.limitY))) {
-      this.motionY = helpers.clamp(this.motionY, -this.limitY, this.limitY)
+      this.my = this.clamp(this.my, -this.limitY, this.limitY);
     }
-    this.velocityX += (this.motionX - this.velocityX) * this.frictionX
-    this.velocityY += (this.motionY - this.velocityY) * this.frictionY
-    for (let index = 0; index < this.layers.length; index++) {
-      let layer = this.layers[index],
-          depthX = this.depthsX[index],
-          depthY = this.depthsY[index],
-          xOffset = this.velocityX * (depthX * (this.invertX ? -1 : 1)),
-          yOffset = this.velocityY * (depthY * (this.invertY ? -1 : 1))
-      this.setPosition(layer, xOffset, yOffset)
+    this.vx += (this.mx - this.vx) * this.frictionX;
+    this.vy += (this.my - this.vy) * this.frictionY;
+    for (var i = 0, l = this.$layers.length; i < l; i++) {
+      var depthX = this.depthsX[i];
+      var depthY = this.depthsY[i];
+      var layer = this.$layers[i];
+      var xOffset = this.vx * (depthX * (this.invertX ? -1 : 1));
+      var yOffset = this.vy * (depthY * (this.invertY ? -1 : 1));
+      this.setPosition(layer, xOffset, yOffset);
     }
-    this.raf = rqAnFr(this.onAnimationFrame)
-  }
+    this.raf = requestAnimationFrame(this.onAnimationFrame);
+  };
 
-  rotate(beta, gamma){
-    // Extract Rotation
-    let x = (beta || event.beta || 0) / MAGIC_NUMBER, //  -90 :: 90
-        y = (gamma || event.gamma || 0) / MAGIC_NUMBER // -180 :: 180
+  Plugin.prototype.onDeviceOrientation = function(event) {
 
-    // Detect Orientation Change
-    let portrait = this.windowHeight > this.windowWidth
-    if (this.portrait !== portrait) {
-      this.portrait = portrait
-      this.calibrationFlag = true
-    }
+    // Validate environment and event properties.
+    if (!this.desktop && event.beta !== null && event.gamma !== null) {
 
-    if (this.calibrationFlag) {
-      this.calibrationFlag = false
-      this.calibrationX = x
-      this.calibrationY = y
-    }
+      // Set orientation status.
+      this.orientationStatus = 1;
 
-    this.inputX = x
-    this.inputY = y
-  }
+      // Extract Rotation
+      var x = (event.beta  || 0) / MAGIC_NUMBER; //  -90 :: 90
+      var y = (event.gamma || 0) / MAGIC_NUMBER; // -180 :: 180
 
-  onDeviceOrientation(event) {
-    let beta = event.beta
-    let gamma = event.gamma
-    if (!this.desktop && beta !== null && gamma !== null) {
-      this.orientationStatus = 1
-      this.rotate(beta, gamma)
-    }
-  }
-
-  onDeviceMotion(event) {
-    let beta = event.rotationRate.beta
-    let gamma = event.rotationRate.gamma
-    if (!this.desktop && beta !== null && gamma !== null) {
-      this.motionStatus = 1
-      this.rotate(beta, gamma)
-    }
-  }
-
-  onMouseMove(event) {
-    let clientX = event.clientX,
-        clientY = event.clientY
-
-    // reset input to center if hoverOnly is set and we're not hovering the element
-    if(this.hoverOnly &&
-      ((clientX < this.elementPositionX || clientX > this.elementPositionX + this.elementWidth) ||
-      (clientY < this.elementPositionY || clientY > this.elementPositionY + this.elementHeight))) {
-        this.inputX = 0
-        this.inputY = 0
-        return
+      // Detect Orientation Change
+      var portrait = window.innerHeight > window.innerWidth;
+      if (this.portrait !== portrait) {
+        this.portrait = portrait;
+        this.calibrationFlag = true;
       }
 
+      // Set Calibration
+      if (this.calibrationFlag) {
+        this.calibrationFlag = false;
+        this.cx = x;
+        this.cy = y;
+      }
+
+      // Set Input
+      this.ix = x;
+      this.iy = y;
+    }
+  };
+
+  Plugin.prototype.onMouseMove = function(event) {
+
+    // Cache mouse coordinates.
+    var clientX = event.clientX;
+    var clientY = event.clientY;
+
+    // Calculate Mouse Input
     if (!this.orientationSupport && this.relativeInput) {
+
       // Clip mouse coordinates inside element bounds.
       if (this.clipRelativeInput) {
-        clientX = Math.max(clientX, this.elementPositionX)
-        clientX = Math.min(clientX, this.elementPositionX + this.elementWidth)
-        clientY = Math.max(clientY, this.elementPositionY)
-        clientY = Math.min(clientY, this.elementPositionY + this.elementHeight)
+        clientX = Math.max(clientX, this.ex);
+        clientX = Math.min(clientX, this.ex + this.ew);
+        clientY = Math.max(clientY, this.ey);
+        clientY = Math.min(clientY, this.ey + this.eh);
       }
+
       // Calculate input relative to the element.
-      if(this.elementRangeX && this.elementRangeY) {
-        this.inputX = (clientX - this.elementPositionX - this.elementCenterX) / this.elementRangeX
-        this.inputY = (clientY - this.elementPositionY - this.elementCenterY) / this.elementRangeY
-      }
+      this.ix = (clientX - this.ex - this.ecx) / this.erx;
+      this.iy = (clientY - this.ey - this.ecy) / this.ery;
+
     } else {
+
       // Calculate input relative to the window.
-      if(this.windowRadiusX && this.windowRadiusY) {
-        this.inputX = (clientX - this.windowCenterX) / this.windowRadiusX
-        this.inputY = (clientY - this.windowCenterY) / this.windowRadiusY
-      }
+      this.ix = (clientX - this.wcx) / this.wrx;
+      this.iy = (clientY - this.wcy) / this.wry;
     }
+  };
+
+  var API = {
+    enable: Plugin.prototype.enable,
+    disable: Plugin.prototype.disable,
+    updateLayers: Plugin.prototype.updateLayers,
+    calibrate: Plugin.prototype.calibrate,
+    friction: Plugin.prototype.friction,
+    invert: Plugin.prototype.invert,
+    scalar: Plugin.prototype.scalar,
+    limit: Plugin.prototype.limit,
+    origin: Plugin.prototype.origin
+  };
+
+  $.fn[NAME] = function (value) {
+    var args = arguments;
+    return this.each(function () {
+      var $this = $(this);
+      var plugin = $this.data(NAME);
+      if (!plugin) {
+        plugin = new Plugin(this, value);
+        $this.data(NAME, plugin);
+      }
+      if (API[value]) {
+        plugin[value].apply(plugin, Array.prototype.slice.call(args, 1));
+      }
+    });
+  };
+
+})(window.jQuery || window.Zepto, window, document);
+
+/**
+ * Request Animation Frame Polyfill.
+ * @author Tino Zijdel
+ * @author Paul Irish
+ * @see https://gist.github.com/paulirish/1579671
+ */
+;(function() {
+
+  var lastTime = 0;
+  var vendors = ['ms', 'moz', 'webkit', 'o'];
+
+  for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
   }
 
-}
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = function(callback, element) {
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+      var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+      lastTime = currTime + timeToCall;
+      return id;
+    };
+  }
 
-module.exports = Parallax
+  if (!window.cancelAnimationFrame) {
+    window.cancelAnimationFrame = function(id) {
+      clearTimeout(id);
+    };
+  }
+
+}());
