@@ -4,6 +4,12 @@
 /* Fonts
 -------------------------------------------------------------- */
 @font-face {
+  font-family: 'Myriad Pro';
+  src: local("Myriad Pro Regular"), local("MyriadPro-Regular"), url("./../font/MyriadPro-Regular.woff2") format("woff2"), url("./../font/MyriadPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'SegoePrint';
   src: url(./../font/sedoyPrint/sedoyPrint.woff); }
 
@@ -1806,6 +1812,9 @@ li.fancybox-thumbs-loading {
   cursor: pointer;
   transition: all .35s; }
 
+.SumoSelect {
+  text-align: left; }
+
 .SumoSelect > .CaptionCont > span {
   padding-left: 9px;
   padding-right: 44px;
@@ -2030,7 +2039,9 @@ li.fancybox-thumbs-loading {
   right: 0;
   left: 0;
   z-index: 20;
-  background-color: #fff; }
+  background-color: #fff;
+  -webkit-transform: translateZ(20px);
+          transform: translateZ(20px); }
   .header__top-panel::before {
     content: '';
     position: absolute;
@@ -2587,7 +2598,8 @@ li.fancybox-thumbs-loading {
   height: 324px;
   opacity: 0.6;
   -webkit-transform: rotate(-140deg);
-          transform: rotate(-140deg); }
+          transform: rotate(-140deg);
+  z-index: -1; }
   .ad-diapers__moon img {
     height: 100%; }
 
@@ -3182,6 +3194,8 @@ li.fancybox-thumbs-loading {
 
 .footer__soc-block {
   font-size: 0; }
+  .footer__soc-block img {
+    vertical-align: top; }
 
 .footer__soc {
   position: relative;
@@ -3695,6 +3709,10 @@ li.fancybox-thumbs-loading {
   background-color: #fff; }
   .filter__group:last-child {
     margin-bottom: 0; }
+  .filter__group--sort .filter__field-wrapper {
+    margin-bottom: 12px; }
+  .filter__group--sort .filter__btn-search {
+    margin-bottom: 0; }
 
 .filter__title {
   position: absolute;
@@ -3731,6 +3749,7 @@ li.fancybox-thumbs-loading {
   color: #637aa8;
   font-size: 17px;
   font-weight: 300;
+  text-align: left;
   cursor: pointer;
   z-index: 1; }
 
@@ -3849,6 +3868,13 @@ li.fancybox-thumbs-loading {
     border-bottom: 1px solid #aae0f5;
     background-color: #fff;
     transition: all .3s ease-out; }
+
+.filter__btn-search {
+  margin-right: auto;
+  margin-left: auto; }
+
+.filter__group {
+  text-align: center; }
 
 .pagination {
   display: -webkit-box;
@@ -4545,7 +4571,8 @@ li.fancybox-thumbs-loading {
     display: block;
     top: 13px;
     right: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    text-align: left; }
   .filter__title::before{
     display: none; }
   .filter__title span{
@@ -4574,6 +4601,8 @@ li.fancybox-thumbs-loading {
     bottom: -1px;
     height: 1px;
     background-color: #ffd360; }
+  .filter__group--sort .filter__btn-search{
+    margin-bottom: 20px; }
   .blog__info{
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -4836,7 +4865,8 @@ li.fancybox-thumbs-loading {
 
 @media (max-width: 425px){
   .form{
-    margin-top: 20px; }
+    margin-top: 20px;
+    padding: 15px; }
   .form__count{
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -4848,8 +4878,8 @@ li.fancybox-thumbs-loading {
   .form__close{
     background-color: transparent;
     box-shadow: none;
-    right: 45px;
-    top: 45px; }
+    right: 5px;
+    top: 5px; }
   .form__inner{
     padding-right: 20px;
     padding-left: 20px; }
@@ -4889,6 +4919,9 @@ li.fancybox-thumbs-loading {
   .menu{
     max-width: 100%;
     top: 57px; }
+  .ad-diapers{
+    padding-right: 18px;
+    padding-left: 18px; }
   .ad-diapers__info{
     margin-bottom: 30px; }
   .product{
