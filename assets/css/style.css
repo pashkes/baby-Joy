@@ -2790,7 +2790,9 @@ li.fancybox-thumbs-loading {
   width: 100%;
   margin: 0 auto;
   padding: 43px 3px 0 3px;
-  margin-bottom: 124px; }
+  margin-bottom: 124px;
+  position: relative;
+  background-color: #fff; }
 
 .product__header {
   display: -webkit-box;
@@ -2995,7 +2997,8 @@ li.fancybox-thumbs-loading {
   position: relative;
   padding: 80px 54px 0 54px;
   text-align: center;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #fff; }
   .reviews::before {
     content: '';
     position: absolute;
