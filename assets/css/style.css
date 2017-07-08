@@ -204,7 +204,8 @@ a img.aligncenter {
 -------------------------------------------------------------- */
 body {
   font: 19px/1.4 'Lato', Arial serif;
-  color: #637aa8; }
+  color: #637aa8;
+  min-width: 320px; }
   body:not(.home) {
     display: -webkit-box;
     display: -webkit-flex;
