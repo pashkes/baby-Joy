@@ -2,7 +2,7 @@
 
 **Pages of list:** 
 
- 1. [Home]([https://pashkes.github.io/baby-Joy/](https://pashkes.github.io/baby-Joy/])
+ 1. [Home]([https://pashkes.github.io/baby-Joy/](https://pashkes.github.io/baby-Joy/)
  2. [Categories](https://pashkes.github.io/baby-Joy/categories)
  3. [Single product](https://pashkes.github.io/baby-Joy/single-product)
  
