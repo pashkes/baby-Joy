@@ -24,22 +24,29 @@
                 <div class="header__top">
                     <form action="get" class="header__info">
                         <label class="header__loc" for="you-city">Ваш город: </label>
-                        <div class="header__sel-wrapper ">
-                            <select class="header__loc-select js-loc" id="you-city">
+                        <div class="header__sel-wrapper">
+                            <select class="header__loc-select" id="you-city">
                                 <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
                             </select>
                         </div>
                         <span class="header__time-delivery">Доставка товара 3 дня</span>
                     </form>
                     <div class="header__contacts">
-                        <a href="tel:+781073247333">+7 810 732 473 33</a>
+                        <a href="tel:+781073247333">
+                                <span class="icon">
+                                 <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         xlink:href="assets/img/symbol.svg#icon-phone"></use>
+                                </svg>
+                            </span> +7 810 732 473 33
+                        </a>
                         <a href="tel:+781073247333">+7 810 732 473 33</a>
                         <a href="tel:+781073247333">+7 810 732 473 33</a>
                     </div>
                     <a href="#" class="header__lang">
                         <img src="assets/img/icon/flag.svg" width="20" height="20" alt="ru">
                     </a>
-                    <button class="header__cart js-btn-cart">
+                    <button class="header__cart">
                             <span class="icon-cart">
                         <svg>
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -79,9 +86,6 @@
                         </a>
                     </div>
                     <nav class="menu js-menu">
-                        <a href="#" class="header__lang">
-                            <img src="assets/img/icon/flag.svg" width="20" height="20" alt="ru">
-                        </a>
                         <ul class="menu__list">
                             <li><a href="#">Cкидки</a></li>
                             <li><a href="#">Акции</a></li>
@@ -119,13 +123,12 @@
                         <form action="get" class="header__info">
                             <label class="header__loc" for="you-city">Ваш город: </label>
                             <div class="header__sel-wrapper">
-                                <select class="header__loc-select js-loc" id="you-city">
+                                <select class="header__loc-select" id="you-city">
                                     <option value="Астана ул. Иманбаева 16">Астана ул. Иманбаева 16</option>
                                 </select>
                             </div>
                             <span class="header__time-delivery">Доставка товара 3 дня</span>
                         </form>
-
                     </nav>
                 </div>
             </div>
@@ -159,13 +162,10 @@
                                                            alt="moon"></div>
                     </div>
                     <div class="ad-diapers__child">
-                        <div class="ad-diapers__child-img">
-                            <picture>
-                                <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
-                                     height="407" alt="child">
-                            </picture>
-                        </div>
-
+                        <picture>
+                            <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
+                                 height="407" alt="child">
+                        </picture>
                         <div class="ad-diapers__cloud  ad-diapers__cloud--top">
                             <div class="ad-diapers__img"><img src="assets/img/cloud-top.png" width="245" height="149"
                                                               alt="cloud"></div>
@@ -204,13 +204,10 @@
                                                            alt="moon"></div>
                     </div>
                     <div class="ad-diapers__child">
-                        <div class="ad-diapers__child-img">
-                            <picture>
-                                <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
-                                     height="407" alt="child">
-                            </picture>
-                        </div>
-
+                        <picture>
+                            <img src="assets/img/kid-header.png" srcset="assets/img/kid-header@2x.png" width="650"
+                                 height="407" alt="child">
+                        </picture>
                         <div class="ad-diapers__cloud  ad-diapers__cloud--top">
                             <div class="ad-diapers__img"><img src="assets/img/cloud-top.png" width="245" height="149"
                                                               alt="cloud"></div>
@@ -230,12 +227,10 @@
                 </article>
             </li>
         </ul>
+        <div class="ad-diapers__aircraft"><img src="assets/img/aircraft.png" width="300" height="68" alt="quality">
+        </div>
         <div class="header__mouse">to scroll bottom</div>
-        <div class="ad-diapers__aircraft-cont"></div>
-        <div class="ad-diapers__aircraft"></div>
         <div class="semicircle-blue"><img src="assets/img/bg-circle.svg" alt="circle-svg"></div>
-        <div class="header__nipple"><img src="assets/img/nipple.svg" width="140" height="150" alt="nipple"></div>
-        <div class="header__heart"><img src="assets/img/heart.svg" width="55" height="55" alt="heart"></div>
     </div>
 </header>
 <main class="wrapper-home">
@@ -275,11 +270,8 @@
                         <span class="product__price">6 200 т</span>
                     </div>
                     <div class="product__btns">
-                        <button class="product__quick-order btn btn--border-green js-btn-order-fast" type="button">
-                            Быстрый
-                            заказ
-                        </button>
-                        <button class="product__buy btn  btn--cart  btn--bg-green  js-btn-cart" type="button">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
                                 <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -287,7 +279,7 @@
                                 </svg>
                             </span>
                             <span class="btn__gradient-trs">Купить</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -312,11 +304,8 @@
                         <span class="product__price">5 600 т</span>
                     </div>
                     <div class="product__btns">
-                        <button class="product__quick-order btn btn--border-green js-btn-order-fast" type="button">
-                            Быстрый
-                            заказ
-                        </button>
-                        <button class="product__buy btn  btn--cart  btn--bg-green  js-btn-cart" type="button">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
                                 <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -324,7 +313,7 @@
                                 </svg>
                             </span>
                             <span class="btn__gradient-trs">Купить</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -347,11 +336,8 @@
                         <span class="product__price">7 100 т <del class="product__old">7 400 т</del></span>
                     </div>
                     <div class="product__btns">
-                        <button class="product__quick-order btn btn--border-green js-btn-order-fast" type="button">
-                            Быстрый
-                            заказ
-                        </button>
-                        <button class="product__buy btn  btn--cart  btn--bg-green  js-btn-cart" type="button">
+                        <button class="product__quick-order btn btn--border-green" type="button">Быстрый заказ</button>
+                        <a href="#" class="product__buy btn  btn--cart  btn--bg-green">
                                 <span class="icon-cart">
                                 <svg>
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -359,7 +345,7 @@
                                 </svg>
                             </span>
                             <span class="btn__gradient-trs">Купить</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -385,7 +371,7 @@
                         <span class="icon">
                             <svg>
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     xlink:href="assets/img/symbol.svg#icon-quote"></use>
+                                xlink:href="assets/img/symbol.svg#icon-quote"></use>
                             </svg>
                         </span>
 
@@ -397,8 +383,7 @@
                         </blockquote>
                     </article>
                     <cite class="reviews__user">Лана Дель Рей</cite>
-                    <div class="reviews__photo"><img src="assets/img/user-photo.jpg" width="90" height="90"
-                                                     alt="Лана Дель Рей"></div>
+                    <div class="reviews__photo"><img src="assets/img/user-photo.jpg" width="90" height="90" alt="Лана Дель Рей"></div>
                 </section>
             </li>
             <li>
@@ -525,180 +510,63 @@
         <ul class="footer__soc-block">
             <li class="footer__soc">
                 <a href="#" class="footer__link  footer__link--fb">
-                    <span class="icon">
-                        <img src="assets/img/icon/fb.svg" width="9" height="18" alt="facebook">
-                    </span>
-                    facebook
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-fb"></use>
+                    </svg>
+                </span> facebook
                 </a>
             </li>
             <li class="footer__soc">
                 <a href="#" class="footer__link  footer__link--tw">
-                    <span class="icon">
-                        <img src="assets/img/icon/tw.svg" width="18" height="15" alt="twitter">
-                    </span>
-                    twitter
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-tw"></use>
+                    </svg>
+                </span> twitter
                 </a>
             </li>
             <li class="footer__soc">
                 <a href="#" class="footer__link  footer__link--vk">
-                    <span class="icon">
-                            <img src="assets/img/icon/vk.svg" width="18" height="10" alt="vk">
-                    </span> vk
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-vk"></use>
+                    </svg>
+                </span> vk
                 </a>
             </li>
             <li class="footer__soc">
                 <a href="#" class="footer__link  footer__link--google-plus">
-                    <span class="icon">
-                        <img src="assets/img/icon/google-plus.svg" width="16" height="16" alt="google-plus">
-                    </span>
-                    google-plus
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-google-plus"></use>
+                    </svg>
+                </span> google-plus
                 </a>
             </li>
             <li class="footer__soc">
                 <a href="#" class="footer__link  footer__link--youtube">
-                    <span class="icon">
-                        <img src="assets/img/icon/icon-youtube.svg" width="17" height="12" alt="youtube">youtube
-                     </span>
+                        <span class="icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="assets/img/symbol.svg#icon-icon-youtube"></use>
+                    </svg>
+                </span> youtube
                 </a>
             </li>
         </ul>
     </div>
 </footer>
-<div class="overlay js-ordering">
-    <form action="get" class="form hide">
-        <button class="form__close" type="button">close form</button>
-        <div class="form__inner">
-            <span class="form__title">Оформление заказа</span>
-            <div class="form__field-wrap  form__field-wrap--name">
-                <input type="text" class="form__field" id="name-client" placeholder="Как Вас зовут?"><label
-                    for="name-client">Как Вас зовут?</label>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--tel">
-                <input type="tel" class="form__field" id="tel-client" placeholder="Телефон"><label for="tel-client">Телефон</label>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--mail">
-                <input type="email" class="form__field" id="mail-client" placeholder="supermama@example.com"><label
-                    for="mail-client">Телефон</label>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--message">
-                <textarea id="client-message" class="form__field"
-                          placeholder="Комментарии к заказу, отделение почты или другая информация..."></textarea>
-                <label for="client-message"></label>
-            </div>
-            <button class="form__to-order  btn  btn--bg-green" type="submit"><span
-                    class="btn__gradient-trs">Заказать</span></button>
-        </div>
-    </form>
-</div>
-<div class="overlay  js-fast-order">
-    <form action="get" class="form hide">
-        <button class="form__close" type="button">close form</button>
-        <div class="form__inner">
-            <span class="form__title">Быстрый заказ товара</span>
-            <div class="form__type">
-                <h4>BabyJoy Ultra Comfort для мальчиков</h4>
-                <div class="form__count">
-                    <div class="single-product__quantity">
-                        <button class="single-product__switch  single-product__switch--down" id="btnPlus" type="button">
-                            уменьшить
-                        </button>
-                        <label for="controlled">Количество</label>
-                        <input type="text" class="single-product__field" id="controlled" value="1">
-                        <button class="single-product__switch  single-product__switch--up" id="btnMinus" type="button">
-                            добавить
-                        </button>
-                    </div>
-                    <span class="form__price">5 600 т</span></div>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--name">
-                <input type="text" class="form__field" id="fast-order-name-client" placeholder="Как Вас зовут?"><label
-                    for="fast-order-name-client">Как Вас зовут?</label>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--tel">
-                <input type="tel" class="form__field" id="fast-order-tel-client" placeholder="Телефон"><label
-                    for="fast-order-tel-client">Телефон</label>
-            </div>
-            <div class="form__field-wrap  form__field-wrap--mail">
-                <input type="email" class="form__field" id="fast-order-mail-client" placeholder="supermama@example.com"><label
-                    for="fast-order-mail-client">Телефон</label>
-            </div>
-            <button class="form__to-order  btn  btn--bg-green" type="submit"><span
-                    class="btn__gradient-trs">Заказать</span></button>
-        </div>
-    </form>
-</div>
-<div class="overlay  js-popup-cart">
-    <div class="form hide form--cart">
-        <button class="form__close" type="button">close form</button>
-        <div class="form__inner">
-            <span class="form__title">Корзина</span>
-            <div class="form__type">
-                <h4>BabyJoy Ultra Comfort для мальчиков</h4>
-                <div class="form__count">
-                    <div class="form__img"><img src="assets/img/mini-prod.jpg" width="54" height="71"
-                                                alt="BabyJoy Ultra Comfort для мальчиков"></div>
-                    <div class="single-product__quantity">
-                        <button class="single-product__switch  single-product__switch--down" type="button">
-                            уменьшить
-                        </button>
-                        <label for="cont-1">Количество</label>
-                        <input type="text" class="single-product__field" id="cont-1" value="1">
-                        <button class="single-product__switch  single-product__switch--up" type="button">
-                            добавить
-                        </button>
-                    </div>
-                    <span class="form__price">5 600 т</span>
-                    <button class="form__remove-order" type="button">remove order</button>
-                </div>
-            </div>
-            <div class="form__type">
-                <h4>BabyJoy Ultra Comfort для мальчиков</h4>
-                <div class="form__count">
-                    <div class="form__img"><img src="assets/img/mini-product.jpg" width="56" height="77"
-                                                alt="BabyJoy mini для cамых маленьких"></div>
-                    <div class="single-product__quantity">
-                        <button class="single-product__switch  single-product__switch--down" type="button">уменьшить
-                        </button>
-                        <label for="cont-2">Количество</label>
-                        <input type="text" class="single-product__field" id="cont-2" value="1">
-                        <button class="single-product__switch  single-product__switch--up" type="button">добавить
-                        </button>
-                    </div>
-                    <span class="form__price">5 600 т</span>
-                    <button class="form__remove-order" type="button">remove order</button>
-                </div>
-            </div>
-            <div class="form__total">
-                <span class="form__total-title">Всего к оплате:</span><span class="form__total-price">12 700 т</span>
-            </div>
-            <button class="form__cart-btn  btn  btn--bg-green js-btn-ordering" type="button"><span
-                    class="btn__gradient-trs">Оформить заказ</span></button>
-        </div>
-    </div>
-</div>
-<div class="overlay  js-location">
-    <div class="header__location  header__location--show  form  hide js-location">
-
-        <span class="loc__title"><span class="title-gradient">Где Вы находитесь?</span></span>
-        <div class="header__map">
-            <a href="#" class="header__city  header__city--capital">Астана</a>
-            <a href="#" class="header__city  header__city--second">Караганда</a>
-            <a href="#" class="header__city  header__city--third">Шымкент</a>
-            <a href="#" class="header__city  header__city--fourth">Алматы</a>
-            <picture>
-                <img src="assets/img/map.png" srcset="assets/img/map@2x.png 2x" width="312"
-                     height="174" alt="you-location">
-            </picture>
-        </div>
-        <button class="header__skip js-skip" type="button">Пропустить</button>
-    </div>
-</div>
-
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/plugins/slick.min.js"></script>
 <script src="assets/js/plugins/svg4body.min.js"></script>
 <script src="assets/js/plugins/jquery.fancybox.min.js"></script>
 <script src="assets/js/plugins/jquery.sumoselect.min.js"></script>
+<script src="assets/js/plugins/updown.min.js"></script>
 <script src="assets/js/custom.js"></script>
 </body>
 

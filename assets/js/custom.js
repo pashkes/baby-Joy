@@ -1,109 +1,44 @@
 'use strict';
 
+
 /**
  * Document ready functions
  */
-
-
 $(function () {
-  //Parallax header
-  // var scene = $('#scene').get(0);
-  //
-  // var parallax = new Parallax(scene);
-
-
-$('.form').removeClass('hide');
-  //increment and decrement number on field
-  $('.single-product__quantity').on('click', function(event){
-    var $target = $(event.target);
-    var start=Number($(this).find('.single-product__field').val());
-    if($target.hasClass('single-product__switch--down') && start >= 1) {
-      start--;
-      $(this).find('.single-product__field').val(start);
-    } else if ($target.hasClass('single-product__switch--up')) {
-      start++;
-      $(this).find('.single-product__field').val(start);
-    }
-  });
-
-  //popups
-  $('.form__remove-order').on('click', function () {
-    $(this).parents('.form__type').remove();
-  });
-
-  var btnOrder = $('.js-btn-ordering'),
-      btnOrderFast = $('.js-btn-order-fast'),
-      btnCart = $('.js-btn-cart'),
-      btnSkip = $('.js-skip'),
-      btnLoc = $('.js-loc'),
-      overlay = $('.overlay'),
-      overlayOrder = $('.js-ordering'),
-      overlayShow = 'overlay--show',
-      overlayFast = $('.js-fast-order'),
-      overlayCart = $('.js-popup-cart'),
-      overlayLocation = $('.js-location'),
-      closeOverlay = $('.form__close'),
-      form = $('.form');
-
-  btnOrder.on('click', function () {
-    $(this).parents('.overlay').removeClass('overlay--show');
-    overlayOrder.addClass(overlayShow);
-  });
-  btnOrderFast.on('click', function () {
-    overlayFast.addClass(overlayShow);
-  });
-  btnCart.on('click', function () {
-    event.preventDefault();
-    overlayCart.addClass(overlayShow);
-  });
-  btnLoc.on('mousedown', function(e) {
-    e.preventDefault();
-    this.blur();
-    window.focus();
-  });
-  btnLoc.on('click', function () {
-    overlayLocation.addClass(overlayShow);
-  });
-  closeOverlay.on('click', function () {
-    $(this).parents(overlay).removeClass(overlayShow);
-  });
-  $('.js-skip').on('click', function () {
-    $(this).parents(overlay).removeClass(overlayShow);
-  });
-  overlay.mouseup(function (e) {
-    if (form.has(e.target).length === 0){
-      $(this).removeClass('overlay--show');
-    }
-  });
-
-//end
-
-
-  //accordeon filter mobile version
-  if ($('.filter').length) {
-    $('.js-acordeon-item').on('click', function () {
-      $(this).parents('.filter__group').toggleClass('filter__group--active');
-    });
-  }
-  //end
-
+  svg4everybody();
 
   //tabs
   $(".js-tab-item").not(":first").hide();
-  $(".js-tab").click(function () {
+$(".js-tab").click(function() {
     $(".js-tab").removeClass("single-product__tab-title--active")
         .eq($(this).index()).addClass("single-product__tab-title--active");
     $(".js-tab-item").hide().eq($(this).index()).show()
-  }).eq(0).addClass("single-product__tab-title--active");
-  //end
+}).eq(0).addClass("single-product__tab-title--active");
+
+  // Up and down number on input page catalog-item
+  if ($('.single-product__quantity').length) {
+    var $controlledByButtons = $('#controlledByButtons');
+    $controlledByButtons.updown({
+      step: 1,
+      shiftStep: 100,
+      min: 0
+    });
+    var $updown = $controlledByButtons.data('updown');
+    $('#btnDecrease').click(function(event){
+      $updown.increase(event);
+      $updown.triggerEvents();
+    });
+    $('#btnIncrease').click(function(event){
+      $updown.decrease(event);
+      $updown.triggerEvents();
+    });
+  }
+
 
   //custom select
-  if ($('.testselect1').length) {
+  if($('.testselect1').length) {
     $('.testselect1').SumoSelect();
   }
-  //end
-
-
   //Slider Slider product page
   if ($('.single-product').length) {
     $('.js-single-product-big').slick({
@@ -121,7 +56,6 @@ $('.form').removeClass('hide');
       focusOnSelect: true
     });
   }
-  //end
 
   //sorting product
   if ($('.js-sort').length) {
@@ -135,10 +69,12 @@ $('.form').removeClass('hide');
     var thisElement = $(this),
         thisElementText = thisElement.next().text();
 
+    console.log(thisElementText);
+
     if ($(this).prop('checked')) {
       $('.tag').append('<li class="tag__item"><span></span><button class="tag__remove" type="button">remove tag</button></li>').index(this);
       $('.tag__item span').text(thisElementText);
-    } else {
+    } else{
       $(this)
     }
   });
@@ -148,8 +84,6 @@ $('.form').removeClass('hide');
       $(this).parents('.tag__item').remove();
     });
   }
-
-
   //show Mobile menu
   //Toggle mobile menu
   var burger = $('.js-burger'),
@@ -160,7 +94,7 @@ $('.form').removeClass('hide');
     $(this).toggleClass('active');
     header.toggleClass(activeMenu);
   });
-  //end
+
 
   //sticky header other pages,not home
   var winPos, navHeight;
@@ -216,7 +150,6 @@ $('.form').removeClass('hide');
     }
   });
 
-
 //slider header
   if ($('.js-ad-diapers').length) {
     $('.js-ad-diapers').slick({
@@ -224,8 +157,6 @@ $('.form').removeClass('hide');
       nextArrow: $('.js-header-arrow-next')
     });
   }
-//end
-
 
 //slider reviews
   if ($('.js-review-slider').length) {
@@ -234,55 +165,27 @@ $('.form').removeClass('hide');
       nextArrow: $('.js-reviews-arrow-next')
     });
   }
-//end
 
-//to top btn
+//to top
   $('.to-top').click(function () {
     $('body,html').animate({
       scrollTop: 0
     }, 800);
     return false;
   });
-//end
 
-  //opacity header on scroll
+
+  var headerContent = $('.ad-diapers__slide');
+
   $(window).on('scroll', function () {
     var scrollCoef = 0.0010;
-    var st = $(this).scrollTop();
     if ($(window).width() > 1024) {
+      headerContent.css({
+        opacity: 1 - $(window).scrollTop() * scrollCoef
+      });
       $('.ad-diapers__slide').css({
-        opacity: 1 - st * scrollCoef
-      });
-
-      $('.ad-diapers__info').css({
-        'transform' : 'translate(0%, -' + st /12 + '%'
-      });
-
-      $('.ad-diapers__child-img').css({
-        'transform' : 'translate(0%, -' + st /12 + '%'
-      });
-
-      $('.header__nipple').css({
-        'transform' : 'translate(0%, -' + st /9 + '%'
-      });
-
-      $('.header__heart').css({
-        'transform' : 'translate(0%, -' + st /9 + '%'
-
-      });
-
-      $('.ad-diapers__cloud').css({
-        'transform' : 'translate(0%, -' + st /4.5 + '%'
-      });
-
-      $('.ad-diapers__aircraft').css({
-        'transform' : 'translate(-' + st / 5  + '%, -' + st / 2.5  + '%'
+        top: 2 - $(window).scrollTop() * .3
       });
     }
   });
-  //end
-
-
 });
-
-
