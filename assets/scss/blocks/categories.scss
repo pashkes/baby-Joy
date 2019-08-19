@@ -1,0 +1,46 @@
+.categories {
+  background-color: #f8fbff;
+  background-image: url(./../img/about-bananas-big.png),
+  url(./../img/about-bananas-middle.png);
+  background-size: 142px 112px, 104px 86px;
+  background-repeat: no-repeat;
+  background-position: 1% 43% , 99% 40%;
+  .product__title {
+    align-self: center;
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+.categories__inner {
+  position: relative;
+  @include container;
+  padding-top: 35px;
+  padding-bottom: 67px;
+  padding-right: 3px;
+  h2 {
+    display: inline-block;
+    margin-bottom: 22px;
+    vertical-align: top;
+  }
+  &--single {
+    padding-right: 15px;
+  }
+}
+.categories__catalog {
+  width: 100%;
+}
+.categories__main {
+  display: flex;
+}
+.categories__top {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+@media (max-width: 425px) {
+    .categories__top {
+      flex-direction: column;
+    }
+}

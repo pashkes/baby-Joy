@@ -27,7 +27,7 @@ gulp.task("clean", function() {
 // 2. Copy
 gulp.task("copy", function() {
     return gulp.src([
-            "assets/fonts/**/*.{woff,woff2}",
+            "assets/font/**/*.{woff,woff2}",
             "assets/img/**",
             "assets/js/**",
             "assets/css/**",
@@ -58,7 +58,7 @@ gulp.task("style", function() {
 
 // 4. Images
 gulp.task("images", function() {
-    return gulp.src("assets/img/**/*.{png,jpg,gif}")
+    return gulp.src("assets/img/**/*.{png,jpg,gif,svg}")
         .pipe(imagemin([
             imagemin.optipng({ optimizationLevel: 3 }),
             imagemin.jpegtran({ progressive: true })
@@ -109,7 +109,7 @@ gulp.task("build", function(fn) {
         "copy",
         "style",
         "images",
-        "symbols",
+        // "symbols",
         "minJs",
         fn
     );
@@ -123,7 +123,7 @@ gulp.task("svgloc", function() {
             inlineSvg: true
         }))
         .pipe(rename("symbol.svg"))
-        .pipe(gulp.dest("build/assets/img"));
+        .pipe(gulp.dest("assets/img"));
 });
 
 

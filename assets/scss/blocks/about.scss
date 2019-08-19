@@ -1,0 +1,127 @@
+.about {
+  position: relative;
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 117px;
+  background-image: linear-gradient(to bottom, rgba(247, 252, 255, 1) 0%, rgba(247, 252, 255, 0.7) 51%, rgba(247, 252, 255, 0) 53%);
+  overflow: hidden;
+}
+
+.about__title {
+  margin-bottom: 62px;
+}
+
+.about__features {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__item {
+  margin-right: 30px;
+  flex: 1 1;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:nth-child(2),
+  &:nth-child(3) {
+    padding-top: 30px;
+  }
+
+  &:nth-child(3) {
+    padding-top: 40px;
+    .about__img {
+      text-align: right;
+      padding-right: 40px;
+    }
+  }
+  h3 {
+    margin-bottom: 10px;
+    font-size: 27px;
+    font-weight: 700;
+  }
+}
+
+.about__img {
+  position: relative;
+  font-size: 0;
+  padding-bottom: 30px;
+}
+
+.about__years-market {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-family: "Houschka Rounded Bold";
+  font-size: 151px;
+  line-height: 1;
+  color: #ffdb2c;
+}
+
+.about__text {
+  p {
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.36;
+  }
+}
+
+.about__bg-bananas {
+  position: absolute;
+  &--big {
+    filter: blur(5px);
+    top: 13%;
+    right: -.5%;
+  }
+  &--middle {
+    top: 10%;
+    left: 3%;
+  }
+  &--tiny {
+    bottom: 10%;
+    left: 8%;
+  }
+}
+@media (max-width: 1024px) {
+  .about {
+    padding-top: 30px;
+    padding-bottom: 70px;
+    background-image: linear-gradient(to bottom, #f7fcff 0%, rgba(247, 252, 255, 0.7) 92%, rgba(247, 252, 255, 0) 93%)
+  }
+    .about__img {
+      img {
+        max-width: 200px;
+
+      }
+    }
+  .about__years-market {
+    font-size: 110px;
+  }
+}
+@media (max-width: 768px) {
+  .about__features {
+    flex-direction: column;
+  }
+  .about__item {
+    max-width: 340px;
+    margin: 0 auto;
+    &:last-child {
+      margin-right: auto;
+    }
+  }
+  .about__title {
+    span {
+      font-size: 27px;
+    }
+  }
+  .about__item  {
+    h3 {
+      font-size: 23px;
+    }
+  }
+  .about__text  {
+    p {
+      font-size: 16px;
+    }
+  }
+}

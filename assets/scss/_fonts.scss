@@ -1,4 +1,45 @@
 /* Fonts
 -------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i');
+
+@font-face {
+  font-family: 'SegoePrint';
+  src: url(./../font/sedoyPrint/sedoyPrint.woff);
+}
+
+@font-face {
+  font-family: 'Houschka Rounded Bold';
+  src: url(./../font/houschka/Houschka-Rounded-Alt-Bold.woff);
+}
+
+@font-face {
+  font-family: 'Houschka Rounded Extra-Bold';
+  src: url(./../font/houschka/Houschka-Rounded-Alt-Extra-Bold.woff);
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: local('Lato Regular'), local('Lato-Regular'),
+  url('./../font/lato/Lato-Regular.woff2') format('woff2'),
+  url('./../font/lato/Lato-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: local('Lato Bold'), local('Lato-Bold'),
+  url('./../font/lato/Lato-Bold.woff2') format('woff2'),
+  url('./../font/lato/Lato-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: local('Lato Light'), local('Lato-Light'),
+  url('./../font/lato/Lato-Light.woff2') format('woff2'),
+  url('./../font/lato/Lato-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}

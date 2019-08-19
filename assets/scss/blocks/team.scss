@@ -1,0 +1,40 @@
+.team {
+  position: relative;
+  padding-top: 80px;
+  text-align: center;
+  z-index: 10;
+  background-image: url(./../img/about-bananas-big.png),
+  url(./../img/about-bananas-middle.png);
+  background-size: 142px 112px, 104px 86px;
+  background-repeat: no-repeat;
+  background-position: -.5% 50% , 97% 30%;
+}
+
+.team__inner {
+  font-size: 0;
+  @include container;
+
+}
+
+.team__text {
+  max-width: 930px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  p {
+    padding-bottom: 30px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.76;
+  }
+}
+@media (max-width: 1400px) {
+    .team {
+      background: none;
+    }
+}
+@media (max-width: 768px) {
+  .team {
+    padding-top: 40px;
+  }
+}

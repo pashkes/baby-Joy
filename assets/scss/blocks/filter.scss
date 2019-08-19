@@ -1,0 +1,227 @@
+.filter {
+  position: relative;
+  max-width: 364px;
+  width: 100%;
+  margin-right: 12px;
+}
+.filter__group {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 26px 32px;
+  padding-top: 75px;
+  border: 1px solid #cfedff;
+  border-radius: 5px;
+  background-color: #fff;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.filter__title {
+  position: absolute;
+  top: 27px;
+  left: 32px;
+  padding-bottom: 9px;
+  font-size: 19px;
+  font-weight: 700;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 191px;
+    height: 1px;
+    background-color: #ffd360;
+  }
+}
+.filter__field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.filter__input {
+  display: none;
+}
+.filter__label {
+  flex: 1;
+  position: relative;
+  margin-right: 10px;
+  padding-left: 56px;
+  color: #637aa8;
+  font-size: 17px;
+  font-weight: 300;
+  cursor: pointer;
+}
+.filter__input + .filter__label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px solid #cfedff;
+  transform: translateY(-50%);
+}
+.filter__input:checked + .filter__label::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  width: 18px;
+  height: 15px;
+  background-image: url(./../img/icon/checked.svg);
+  background-repeat: no-repeat;
+}
+.filter__input:checked + .filter__label ~ .filter__info{
+    background-color: #7cd3f4;
+    color: #fff;
+    &::before {
+      background-color: #7cd3f4;
+      border-color: #7cd3f4;
+    }
+}
+.filter__icon {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  width: 22px;
+  text-align: right;
+
+  transform: translateY(-50%);
+  &--newborn {
+    line-height: 24px;
+    svg {
+      width: 20px;
+      height: 24px;
+    }
+  }
+  &--tiny {
+    line-height: 17px;
+    svg {
+      width: 22px;
+      height: 17px;
+    }
+  }
+  &--middle {
+    line-height: 23px;
+    svg {
+      width: 19px;
+      height: 23px;
+    }
+  }
+  &--big {
+    padding-right: 1px;
+    line-height: 26px;
+    svg {
+      width: 16px;
+      height: 26px;
+    }
+  }
+  &--adolescent {
+    padding-right: 2px;
+    line-height: 25px;
+    svg {
+      width: 15px;
+      height: 25px;
+    }
+  }
+  &--box-small {
+    line-height: 9px;
+    svg {
+      width: 22px;
+      height: 9px;
+    }
+  }
+  &--box-middle {
+    line-height: 14px;
+    svg {
+      width: 24px;
+      height: 14px;
+    }
+  }
+  &--box-big {
+    line-height: 15px;
+    svg {
+      width: 23px;
+      height: 15px;
+    }
+  }
+  &--type-1 {
+    line-height: 19px;
+    svg {
+      width: 23px;
+      height: 19px;
+    }
+  }
+  &--type-2 {
+    line-height: 18px;
+    svg {
+      width: 23px;
+      height: 18px;
+    }
+  }
+}
+.filter__info {
+  position: relative;
+  min-width: 67px;
+  margin-left: auto;
+  padding: 2px 5px;
+  border: 1px solid #aae0f5;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #637aa8;
+  transition: all .3s ease-out;
+  &::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 50%;
+    transform: translateY(-50%) rotate(130deg);
+    width: 5px;
+    height: 6px;
+    border-right: 1px solid #aae0f5;
+    border-bottom: 1px solid #aae0f5;
+    background-color: #fff;
+    transition: all .3s ease-out;
+  }
+}
+@media (max-width: 1024px) {
+    .filter {
+      position: fixed;
+      top: 76px;
+      bottom: 0;
+      right: -15px;
+      z-index: 10;
+      padding: 20px;
+      overflow-y: scroll ;
+      background-color: #e8f4fd;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  .filter__label {
+  }
+}
+@media (max-width: 768px) {
+  .filter {
+
+  }
+  .filter__label {
+    font-size: 14px;
+  }
+  .filter__group {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 25px;
+  }
+}
+@media (max-width: 425px) {
+  .filter {
+    top: 50px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+  }
+}
